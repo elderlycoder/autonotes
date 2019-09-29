@@ -1,0 +1,25 @@
+<h1>Страница с контактами</h1>
+Добавить контакт:
+<form action="contacts" method="post">
+<label for="model">Имя: </label>
+<input type="text" name="name">
+<label for="model">Контактный телефон: </label>
+<input type="text" name="phone">
+<label for="model">Марка и модель: </label>
+<input type="text" name="model">
+<label for="desc">Примечание: </label>
+<input type="text" name="desc">
+
+<button>Сохранить</button>
+</form>
+
+<table>
+   <tr>
+      <th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Примечание</th>
+   </tr>
+   {{#each contacts}}
+   <tr>
+      <td>{{name}}</td><td>{{phone}}</td><td>{{model}}</td><td>{{desc}}</td>
+   </tr>
+   {{/each}}
+</table>

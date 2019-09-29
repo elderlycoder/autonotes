@@ -1,0 +1,78 @@
+<h1>Добавление заказа</h1>
+<div>
+      <div id="search-contact">Найти в базе</div>
+      <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
+   </div>
+<form action="/addorder" method="POST">
+   
+   <input type="hidden" name="input-name">
+   <input type="hidden" name="input-phone">
+   <input type="hidden" name="input-model">
+
+   <button type="submit" name="button">Сохранить</button> 
+  
+</form>
+
+ <div id="popup-search-contact" class="popup hide-popup">
+      <div class="popup-content">
+         <div class="popup-header">
+            <h3 class="modal-h3"> Окно для выбора существующих контактов</h3>
+            <span class="close modal-close"> &times;</span>
+         </div>
+         <div class="row-modal-search">
+
+            <div>
+               <label for="name-search">Имя</label>
+               <input id="name-search" name="title" type="text">
+            </div>
+            <div>
+               <label for="name-search">Телефон</label>
+               <input id="name-search" name="phone" type="text">
+            </div>
+            <hr />
+            <ul class="items-search" id="results"></ul>
+            <div class="row-list">
+               <ul class="items-search">
+                  {{#if contacts.length}}
+                  {{#each contacts}}
+                  <li class="contacts-list">
+                     <span class="span-list-name">{{name}}</span>
+                     <span class="span-list">{{phone}}</span>
+                     <span class="span-list">{{model}}</span>
+
+                  </li>
+                  {{/each}}
+               </ul>
+            </div>
+            {{else}}
+            <p>Контактов пока нет</p>
+            {{/if}}
+         </div>
+      </div>
+   </div>
+
+    <div id="popup-new-contact" class="popup hide-popup">
+      <div class="popup-content">
+         <div class="popup-header">
+            <h3 class="modal-h3"> Модальное окно </h3>
+            <span class="close modal-close"> &times;</span>
+         </div>
+         <div class="row-modal-model">
+
+            <div>
+               <label for="name">Название заказа</label>
+               <input id="name" name="name" type="text">
+            </div>
+            <div>
+               <label for="phone">Контактный телефон</label>
+               <input id="phone" name="phone" type="text">
+            </div>
+            <div>
+               <label for="model">Марка и модель</label>
+               <input id="model" name="model" type="text">
+            </div>
+            <button>Сохранить</button>
+
+         </div>
+      </div>
+   </div>
