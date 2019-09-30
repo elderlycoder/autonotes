@@ -18,20 +18,22 @@ router.get('/', async (req, res) => {
    }); 
 });
 
-// router.post('/', urlencodedParser, async (req, res) => {
+router.post('/', urlencodedParser, async (req, res) => {
    
-//    let title = req.body.title,
-//       phone = req.body.phone,
-//       model = req.body.model;
-//       const order = new Order({title: title, phone: phone, model: model })
+   let name = req.body.name,
+      phone = req.body.phone,
+      model = req.body.model,
+      desc = req.body.desc,
+      created = req.body.start;
+      const order = new Order({name: name, phone: phone, model: model, desc: desc, created: created })
   
-//       try {
-//          await order.save()
-//          //res.redirect('/')
-//        } catch (e) {
-//          console.log(e)
-//        }
-//      })
+      try {
+         await order.save()
+         res.redirect('/')
+       } catch (e) {
+         console.log(e)
+       }
+     })
    
 
 module.exports = router;

@@ -4,10 +4,17 @@
       <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
    </div>
 <form action="/addorder" method="POST">
+   <div class="contact-data hide">
+   <input type="text" name="name">
+   <input type="text" name="phone">
+   <input type="text" name="model">
+   </div>
+   Дата: <input type="date" id="start" name="start"><br>
+
+   Примечание: <input type="text" name="desc">
+
    
-   <input type="hidden" name="input-name">
-   <input type="hidden" name="input-phone">
-   <input type="hidden" name="input-model">
+
 
    <button type="submit" name="button">Сохранить</button> 
   
@@ -60,7 +67,7 @@
          <div class="row-modal-model">
 
             <div>
-               <label for="name">Название заказа</label>
+               <label for="name">Имя</label>
                <input id="name" name="name" type="text">
             </div>
             <div>
