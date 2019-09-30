@@ -1,7 +1,6 @@
 {
   "name": "autonotes",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -17,5 +16,14 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elderlycoder/autonotes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elderlycoder/autonotes/issues"
+  },
+  "homepage": "https://github.com/elderlycoder/autonotes#readme",
+  "description": ""
 }
