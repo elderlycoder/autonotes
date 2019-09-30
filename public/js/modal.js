@@ -37,9 +37,10 @@ function getContact(event){
     //inputSearchContact.setAttribute('value', target.parentElement.textContent);
     inputSearchContact.textContent = target.parentElement.textContent;
     document.querySelector('#popup-search-contact').classList.add('hide-popup');
-    document.querySelector('input[name="input-name"]').setAttribute('value', parent.children[0].textContent);
-    document.querySelector('input[name="input-phone"]').setAttribute('value', parent.children[1].textContent);
-    document.querySelector('input[name="input-model"]').setAttribute('value', parent.children[2].textContent);
+   // document.querySelector('.contact-data').classList.remove('hide');
+    document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
+    document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
+    document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
     
 }
 
