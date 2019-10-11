@@ -1,85 +1,153 @@
 <h1>Добавление заказа</h1>
 <div>
-      <div id="search-contact">Найти в базе</div>
-      <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
-   </div>
+   <button id="search-contact">Найти в базе</button> или добавить 
+   <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
+</div>
 <form action="/addorder" method="POST">
    <div class="contact-data hide">
-   <input type="text" name="name">
-   <input type="text" name="phone">
-   <input type="text" name="model">
+      <input type="text" name="name">
+      <input type="text" name="phone">
+      <input type="text" name="model">
    </div>
    Дата: <input type="date" id="start" name="start"><br>
 
    Примечание: <input type="text" name="desc">
-
-   
-
-
-   <button type="submit" name="button">Сохранить</button> 
-  
+   <div id="parts-list">
+        </div>
+ <button type="submit" name="button">Сохранить</button>
 </form>
 
- <div id="popup-search-contact" class="popup hide-popup">
-      <div class="popup-content">
-         <div class="popup-header">
-            <h3 class="modal-h3"> Окно для выбора существующих контактов</h3>
-            <span class="close modal-close"> &times;</span>
-         </div>
-         <div class="row-modal-search">
+<div id="popup-search-contact" class="popup hide-popup">
+   <div class="popup-content">
+      <div class="popup-header">
+         <h3 class="modal-h3"> Окно для выбора существующих контактов</h3>
+         <span class="close modal-close"> &times;</span>
+      </div>
+      <div class="row-modal-search">
 
-            <div>
-               <label for="name-search">Имя</label>
-               <input id="name-search" name="title" type="text">
-            </div>
-            <div>
-               <label for="name-search">Телефон</label>
-               <input id="name-search" name="phone" type="text">
-            </div>
-            <hr />
-            <ul class="items-search" id="results"></ul>
-            <div class="row-list">
-               <ul class="items-search">
-                  {{#if contacts.length}}
-                  {{#each contacts}}
-                  <li class="contacts-list">
-                     <span class="span-list-name">{{name}}</span>
-                     <span class="span-list">{{phone}}</span>
-                     <span class="span-list">{{model}}</span>
-
-                  </li>
-                  {{/each}}
-               </ul>
-            </div>
-            {{else}}
-            <p>Контактов пока нет</p>
-            {{/if}}
+         <div>
+            <label for="name-search">Имя</label>
+            <input id="name-search" name="title" type="text">
          </div>
+         <div>
+            <label for="name-search">Телефон</label>
+            <input id="name-search" name="phone" type="text">
+         </div>
+         <hr />
+         <ul class="items-search" id="results"></ul>
+         <div class="row-list">
+            <ul class="items-search">
+               {{#if contacts.length}}
+               {{#each contacts}}
+               <li class="contacts-list">
+                  <span class="span-list-name">{{name}}</span>
+                  <span class="span-list">{{phone}}</span>
+                  <span class="span-list">{{model}}</span>
+               </li>
+               {{/each}}
+            </ul>
+         </div>
+         {{else}}
+         <p>Контактов пока нет</p>
+         {{/if}}
       </div>
    </div>
+</div>
 
-    <div id="popup-new-contact" class="popup hide-popup">
-      <div class="popup-content">
-         <div class="popup-header">
-            <h3 class="modal-h3"> Модальное окно </h3>
-            <span class="close modal-close"> &times;</span>
+<div id="popup-new-contact" class="popup hide-popup">
+   <div class="popup-content">
+      <div class="popup-header">
+         <h3 class="modal-h3"> Модальное окно </h3>
+         <span class="close modal-close"> &times;</span>
+         
+      </div>
+      <div class="row-modal-model">
+
+         <div>
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text">
          </div>
-         <div class="row-modal-model">
-
-            <div>
-               <label for="name">Имя</label>
-               <input id="name" name="name" type="text">
-            </div>
-            <div>
-               <label for="phone">Контактный телефон</label>
-               <input id="phone" name="phone" type="text">
-            </div>
-            <div>
-               <label for="model">Марка и модель</label>
-               <input id="model" name="model" type="text">
-            </div>
-            <button>Сохранить</button>
-
+         <div>
+            <label for="phone">Контактный телефон</label>
+            <input id="phone" name="phone" type="text">
          </div>
+         <div>
+            <label for="model">Марка и модель</label>
+            <input id="model" name="model" type="text">
+         </div>
+         <button>Сохранить</button>
+
       </div>
    </div>
+</div>
+<!-- Модальное окно с названиями запчастей
+<div id="popup-part" class="popup hide-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h3 class="modal-h3"> Модальное окно с деталями</h3>
+            <span class="close modal-close"> &times;</span>
+        </div>
+        <div id="selected-parts">
+           <ul id="part-list"></ul>
+        </div>
+        <div class="row-modal-model">
+            <ul class="mmenuu">
+                <li class="select-model" id="audi" data-model="Audi">Передняя подвеска
+                    <ul class="ssubmenuu">
+                <li class="select-part"><input class="checkbox" type="checkbox">Амортизатор передний левый</li>
+                <li class="select-part"><input class="checkbox" type="checkbox">Амортизатор передний правый</li>
+                <li class="select-part"><input class="checkbox" type="checkbox">Амортизаторы передние комплпект</li>
+                <li class="select-part"><input class="checkbox" type="checkbox">Втулка переднего стабилизатора</li>
+                <li class="select-part"><input class="checkbox" type="checkbox">Стойка переднего стабилизатора</li>
+                </ul>
+                </li>
+            </ul>
+            <ul class="mmenuu">
+                <li class="select-model" id="bmw" data-model="BMW">Задняя подвеска
+                    <ul class="ssubmenuu">
+               <li class="select-part">Амортизаторы задние комплект</li>
+               <li class="select-part">Амортизатор задний левый</li>
+               <li class="select-part">Амортизатор задний правый</li>
+               <li class="select-part">Балка задняя</li>
+               <li class="select-part">Болт развала задних колёс</li>
+               <li class="select-part">Втулка заднего стабилизатора</li>
+               <li class="select-part">Стойка заднего стабилизатора</li>
+                </ul>
+                </li>
+           
+        </div>
+    </div>
+</div>-->
+<div id="popup-part" class="menu-parts">
+  
+      <div class="popup-header">
+         <h3 class="modal-h3"> Меню с деталями</h3>
+      </div>
+      <div class="row-part">
+            <ul class="mmenuu">
+                <li class="select-model" id="audi" data-model="Audi">Передняя подвеска
+                    <ul class="ssubmenuu">
+                <li class="select-part">Амортизатор передний левый</li>
+                <li class="select-part">Амортизатор передний правый</li>
+                <li class="select-part">Амортизаторы передние комплпект</li>
+                <li class="select-part">Втулка переднего стабилизатора</li>
+                <li class="select-part">Стойка переднего стабилизатора</li>
+                </ul>
+                </li>
+            
+                <li class="select-model" id="bmw" data-model="BMW">Задняя подвеска
+                    <ul class="ssubmenuu">
+               <li class="select-part">Амортизаторы задние комплект</li>
+               <li class="select-part">Амортизатор задний левый</li>
+               <li class="select-part">Амортизатор задний правый</li>
+               <li class="select-part">Балка задняя</li>
+               <li class="select-part">Болт развала задних колёс</li>
+               <li class="select-part">Втулка заднего стабилизатора</li>
+               <li class="select-part">Стойка заднего стабилизатора</li>
+                </ul>
+                </li>
+            </ul>
+           
+        </div>
+      </div>
+</div>

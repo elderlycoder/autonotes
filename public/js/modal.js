@@ -41,20 +41,33 @@ function getContact(event){
     document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
     document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
     document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
-    
 }
 
-// document.getElementById('name-search').addEventListener('input', e => {
-//     renderList(filter(e.target.value, list), result);
-//     document.querySelector('#table-contact').classList.add('hide')//убираем таблицу со всеми контактами из модального окна
 const popupNewContact = document.querySelector('#open-popup-new-contact')
 popupNewContact.addEventListener('click', function () {
     document.querySelector('#popup-new-contact').classList.remove('hide-popup');
 });
 
+document.querySelectorAll('.select-part').forEach(function(elem){
+    elem.addEventListener('click', getPart)
+});
 
+function getPart(event){
+    const partsList = document.querySelector('#parts-list')
+    let target = event.target;
+    let inputPartName = document.createElement('input');
+    let inputCount = document.createElement('input');
+    setAttributes(inputCount,{"type": "number", "value": "1", "id": "pyat"})
+    inputPartName.setAttribute('value', target.textContent);
+    partsList.appendChild(inputPartName);
+    partsList.appendChild(inputCount);
+}
 
-
+function setAttributes(el, attrs) {
+    for(var key in attrs) {
+      el.setAttribute(key, attrs[key]);
+    }
+  }
 
 popupClose.forEach(function (item) {
     item.addEventListener('click', function () {

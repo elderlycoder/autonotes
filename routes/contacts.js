@@ -6,11 +6,11 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
 router.get('/', async (req, res) => {
-   //const isAddOrder = true;
+   const isAddContact = true;
    const contacts = await Contact.find()
    res.render("contacts",{
      contacts: contacts,
-     //isAddOrder
+     isAddContact
 
    }); 
 });

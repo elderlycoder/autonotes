@@ -6,12 +6,66 @@
 <label for="model">Контактный телефон: </label>
 <input type="text" name="phone">
 <label for="model">Марка и модель: </label>
-<input type="text" name="model">
+<input type="text" id="model" name="model">
 <label for="desc">Примечание: </label>
 <input type="text" name="desc">
 
 <button>Сохранить</button>
 </form>
+
+<div id="popup-model" class="popup hide-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h3 class="modal-h3"> Модальное окно с марками</h3>
+            <span class="close modal-close"> &times;</span>
+        </div>
+        <div class="row-modal-model">
+            <ul class="mmenuu">
+                <li class="select-model" id="audi" data-model="Audi">Audi
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="audi-80" data-model="Audi 80">80</li>
+                <li class="select-model" id="audi-90" data-model="Audi 90">90</li>
+                <li class="select-model" id="audi-100" data-model="Audi 100">100</li>
+                <li class="select-model" id="audi-a3" data-model="Audi A3">A3</li>
+                <li class="select-model" id="audi-a4" data-model="Audi A4">A4</li>
+                <li class="select-model" id="audi-a6" data-model="Audi A5">A5</li>
+                <li class="select-model" id="audi-q5" data-model="Audi 80">Q5</li>
+                </ul>
+                </li>
+            </ul>
+            <ul class="mmenuu">
+                <li class="select-model" id="bmw" data-model="BMW">BMW
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="bmw-1" data-model="BMW 1">1</li>
+                <li class="select-model" id="bmw-3" data-model="BMW 3">3</li>
+                <li class="select-model" id="bmw-5" data-model="BMW 5">5</li>
+                <li class="select-model" id="bmw-7" data-model="BMW 7">7</li>
+                <li class="select-model" id="bmw-x1" data-model="BMW X1">X1</li>
+                <li class="select-model" id="bmw-x3" data-model="BMW X3">X3</li>
+                <li class="select-model" id="bmw-x5" data-model="BMW X5">X5</li>
+                </ul>
+                </li>
+            </ul>
+            <ul>
+                
+                <li> BMW</li>
+                <li> Cadillac</li>
+                <li> Chery</li>
+                <li> Chevrolet</li>
+                <li> Citroen</li>
+            </ul>
+            <ul>
+                <li> Lada (ВАЗ)</li>
+                <li> Audi</li>
+                <li> BMW</li>
+                <li> Cadillac</li>
+                <li> Chery</li>
+                <li> Chevrolet</li>
+                <li> Citroen</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <table>
    <tr>
