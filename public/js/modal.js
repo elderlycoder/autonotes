@@ -13,14 +13,14 @@ let list = []
 for (var i = 0; i < l.length; i++) {
     list.push(l[i].innerHTML);
 }
-document.querySelectorAll('#name-search').forEach(function(elem){
-   elem.addEventListener('input', e => {
+document.querySelectorAll('#name-search').forEach(function (elem) {
+    elem.addEventListener('input', e => {
         renderList(filter(e.target.value, list), result);
         document.querySelector('.row-list').classList.add('hide');
     })
 })
 
-document.querySelectorAll('.items-search').forEach(function(elem){
+document.querySelectorAll('.items-search').forEach(function (elem) {
     elem.addEventListener('click', getContact)
 });
 function filter(val, _list) {
@@ -31,13 +31,13 @@ function renderList(_list = [], el = document.body) {
     el.innerHTML = _list.map(item => `<li>${item}</li>`).join('');
 }
 
-function getContact(event){
+function getContact(event) {
     let target = event.target; // получаем элемент на котором произошло событие
     const parent = target.parentElement
     //inputSearchContact.setAttribute('value', target.parentElement.textContent);
     inputSearchContact.textContent = target.parentElement.textContent;
     document.querySelector('#popup-search-contact').classList.add('hide-popup');
-   // document.querySelector('.contact-data').classList.remove('hide');
+    // document.querySelector('.contact-data').classList.remove('hide');
     document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
     document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
     document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
@@ -48,26 +48,54 @@ popupNewContact.addEventListener('click', function () {
     document.querySelector('#popup-new-contact').classList.remove('hide-popup');
 });
 
-document.querySelectorAll('.select-part').forEach(function(elem){
-    elem.addEventListener('click', getPart)
+document.querySelectorAll('.select-part').forEach(function (elem) {
+    elem.addEventListener('click', addPart)
 });
 
-function getPart(event){
-    const partsList = document.querySelector('#parts-list')
-    let target = event.target;
+function addPart(event) {
+    const partsList = document.querySelector('#todo-list')
+    let listItem = createPartListItem(event.target)
+    listItem.className = 'part-item';
+    partsList.appendChild(listItem);
+}
+// Создаем один элемент спика запчастей
+function createPartListItem(title) {
     let inputPartName = document.createElement('input');
+    inputPartName.setAttribute('value', title.textContent);
+
     let inputCount = document.createElement('input');
-    setAttributes(inputCount,{"type": "number", "value": "1", "id": "pyat"})
-    inputPartName.setAttribute('value', target.textContent);
-    partsList.appendChild(inputPartName);
-    partsList.appendChild(inputCount);
+    setAttributes(inputCount, { "type": "number", "value": "1", "id": "pyat" })
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Удалить';
+    setAttributes(deleteButton, {"class": "delete-button"});
+    deleteButton.addEventListener('click', function(event){
+        listItem.parentElement.removeChild(listItem);
+        event.preventDefault();
+    })
+
+    let listItem = document.createElement('li')
+    listItem.appendChild(inputPartName);
+    listItem.appendChild(inputCount);
+    listItem.appendChild(deleteButton);
+    return listItem;
 }
 
+// ф-ия удалить деталь
+function deletePart(){
+    event.preventDefault();
+    const todoList = document.getElementById('todo-list');
+    let listItem = this.parentNode;
+    console.log(listItem)
+    //todoList.removeChild(listItem);
+}
+
+
 function setAttributes(el, attrs) {
-    for(var key in attrs) {
-      el.setAttribute(key, attrs[key]);
+    for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
     }
-  }
+}
 
 popupClose.forEach(function (item) {
     item.addEventListener('click', function () {
