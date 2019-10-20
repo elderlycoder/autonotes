@@ -112,7 +112,7 @@
  .row-modal-model li:hover {
    cursor: pointer;
    font-weight:bold;
-   color: #5d56d5
+   
  }
  .row-part li:hover {
    cursor: pointer;
@@ -125,14 +125,13 @@
  }
  ul.mmenuu > li {
    /* Задаю выравнивание и позиционирование. */
-   /*float: left;*/
+   float: left;
    /* Считаем координаты относительно исходного места*/
    position: relative;
  }
  ul.mmenuu > li {
    /* Делаю элементы блочными: */
    display: block;
-   /* Задаю белый цвет. */
    color: #000;
    /* Задаю отступ 10px. */
    padding: 5px;
@@ -144,6 +143,7 @@
  ul.mmenuu > li:hover {
    /* Задаю цвет при наведении. */
    background-color: #fff;
+   color: #5d56d5;
  }
  ul.ssubmenuu {
    /*position: absolute;*/
@@ -163,7 +163,7 @@
    /* Делаю элементы блочными. */
    display: block;
    /* Убираю форматирование*/
-   text-decoration: none;
+  /* text-decoration: none;*/
    /* Задаю отступ. */
    padding: 5px;
    /* Задаю цвет. */
@@ -183,3 +183,4 @@
  #pyat::-webkit-inner-spin-button { 
    opacity: 1;
  }
+

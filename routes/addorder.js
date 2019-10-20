@@ -25,7 +25,8 @@ router.post('/', urlencodedParser, async (req, res) => {
       model = req.body.model,
       desc = req.body.desc,
       created = req.body.start;
-      const order = new Order({name: name, phone: phone, model: model, desc: desc, created: created })
+      countPart = req.body.countPart
+      const order = new Order({name: name, phone: phone, model: model, desc: desc, created: created, CountPart: countPart }) // поле в бд: передаваемый элемент
   
       try {
          await order.save()

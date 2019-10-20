@@ -5,6 +5,7 @@ const order = new Schema({
    phone: {type: String},
    model: {type: String},
    desc: {type: String},
+   CountPart: {type: Number},
    created: Date
 })
 

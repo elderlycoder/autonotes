@@ -1,14 +1,44 @@
 <h1>Страница с контактами</h1>
+<div>
+    <label for="name-search">Поиск: </label>
+    <input id="name-search" name="title" type="text" placeholder="Начните вводить имя или телефон">
+</div>
 Добавить контакт:
 <form action="contacts" method="post">
-<label for="model">Имя: </label>
-<input type="text" name="name">
-<label for="model">Контактный телефон: </label>
-<input type="text" name="phone">
-<label for="model">Марка и модель: </label>
-<input type="text" id="model" name="model">
-<label for="desc">Примечание: </label>
-<input type="text" name="desc">
+<!--<label for="model">Имя: </label>-->
+<input type="text" name="name" placeholder="Имя">
+<input type="text" name="phone" placeholder="Телефон">
+<input type="text" id="model" name="model" placeholder="Марка и модель">
+<label for="year">Год: </label>
+<select id="year" name="year">
+    <option value="2019">2019</option>
+    <option value="2018">2018</option>
+    <option value="2017">2017</option>
+    <option value="2016">2016</option>
+    <option value="2015">2015</option>
+    <option value="2014">2014</option>
+    <option value="2013">2013</option>
+    <option value="2012">2012</option>
+    <option value="2011">2011</option>
+    <option value="2010">2010</option>
+    <option value="2009">2009</option>
+    <option value="2008">2008</option>
+    <option value="2007">2007</option>
+    <option value="2006">2006</option>
+    <option value="2005">2005</option>
+    <option value="2004">2004</option>
+    <option value="2003">2003</option>
+    <option value="2002">2002</option>
+    <option value="2001">2001</option>
+    <option value="2000">2000</option>
+    <option value="1999">1999</option>
+    <option value="1998">1998</option>
+    <option value="1997">1997</option>
+    <option value="1996">1996</option>
+    <option value="1995">1995</option>
+</select>
+<input type="text" id="vin" name="vin" placeholder="VIN код">
+<input type="text" name="desc" placeholder="Примечание">
 
 <button>Сохранить</button>
 </form>
@@ -46,34 +76,89 @@
                 </ul>
                 </li>
             </ul>
-            <ul>
-                
-                <li> BMW</li>
-                <li> Cadillac</li>
-                <li> Chery</li>
-                <li> Chevrolet</li>
-                <li> Citroen</li>
+            <ul class="mmenuu">
+                <li class="select-model" id="chevrolet" data-model="Chevrolet">Chevrolet
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="aveo" data-model="Chevrolet Aveo">Aveo</li>
+                <li class="select-model" id="captiva" data-model="Chevrolet Captiva">Captiva</li>
+                <li class="select-model" id="cruze" data-model="Chevrolet Cruze">Cruze</li>
+                <li class="select-model" id="lacetti" data-model="Chevrolet Lacetti">Lacetti</li>
+                <li class="select-model" id="lanos" data-model="Chevrolet Lanos">Lanos</li>
+                <li class="select-model" id="bmw-x3" data-model="Chevrolet Niva">Niva</li>
+                <li class="select-model" id="bmw-x5" data-model="Chevrolet Orlando">Orlando</li>
+                <li class="select-model" id="bmw-x5" data-model="Chevrolet Tahoe">Tahoe</li>
+                </ul>
+                </li>
             </ul>
-            <ul>
-                <li> Lada (ВАЗ)</li>
-                <li> Audi</li>
-                <li> BMW</li>
-                <li> Cadillac</li>
-                <li> Chery</li>
-                <li> Chevrolet</li>
-                <li> Citroen</li>
+            <ul class="mmenuu">
+                <li class="select-model" id="citroen" data-model="Citroen">Citroen
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="berlingo" data-model="Citroen Berlingo">Berlingo</li>
+                <li class="select-model" id="c-crosser" data-model="Citroen C-Crosser">C-Crosser</li>
+                <li class="select-model" id="c3" data-model="Citroen C3">C3</li>
+                <li class="select-model" id="c3-picasso" data-model="Citroen C3 Picasso">C3 Picasso</li>
+                <li class="select-model" id="c4" data-model="Citroen C4">C4</li>
+                <li class="select-model" id="c4-picasso" data-model="Citroen C4 Picasso">C4 Picasso</li>
+                <li class="select-model" id="c5" data-model="Citroen C5">C5</li>
+                <li class="select-model" id="c5-aircross" data-model="Citroen C5 Aircross">C5 Aircross</li>
+                </ul>
+                </li>
             </ul>
+            <ul class="mmenuu">
+                <li class="select-model" id="ford" data-model="Ford">Ford
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="c-max" data-model="Ford C-Max">C-Max</li>
+                <li class="select-model" id="ecosport" data-model="Ford EcoSport">EcoSport</li>
+                <li class="select-model" id="escape" data-model="Ford Escape">Escape</li>
+                <li class="select-model" id="explorer" data-model="Ford Explorer">Explorer</li>
+                <li class="select-model" id="fiesta" data-model="Ford Fiesta">Fiesta</li>
+                <li class="select-model" id="focus" data-model="Ford Focus">Focus</li>
+                <li class="select-model" id="fusion" data-model="Ford Fusion">Fusion</li>
+                <li class="select-model" id="galaxy" data-model="Ford Galaxy">Galaxy</li>
+                <li class="select-model" id="mondeo" data-model="Ford Focus">Mondeo</li>
+                <li class="select-model" id="s-max" data-model="Ford S-Max">S-Max</li>
+                </ul>
+                </li>
+            </ul>
+            <ul class="mmenuu">
+                <li class="select-model" id="honda" data-model="Honda">Honda
+                    <ul class="ssubmenuu">
+                <li class="select-model" id="accord" data-model="Honda Accord">Accord</li>
+                <li class="select-model" id="civic" data-model="Honda Civic">Civic</li>
+                <li class="select-model" id="crv" data-model="Honda CR-V">CR-V</li>
+                <li class="select-model" id="crosstour" data-model="Honda Crosstour">Crosstour</li>
+                <li class="select-model" id="fit" data-model="Honda Fit">Fit</li>
+                <li class="select-model" id="hrv" data-model="Honda HR-V">HR-V</li>
+                <li class="select-model" id="jazz" data-model="Honda Jazz">Jazz</li>
+                <li class="select-model" id="pilot" data-model="Honda Pilot">Pilot</li>
+                <li class="select-model" id="stepwgn" data-model="Honda Stepwgn">Stepwgn</li>
+                </ul>
+                </li>
+            </ul>
+           
         </div>
     </div>
 </div>
 
+<!--<div id="result" class="hide">
+    
+</div>-->
+
+<table id="result" class="hide">
+   <tr>
+      <th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Год</th><th>VIN</th><th>Примечание</th>
+   </tr>
+</table>
+<div class="row-list">
 <table>
    <tr>
-      <th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Примечание</th>
+      <th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Год</th><th>VIN</th><th>Примечание</th>
    </tr>
+   <tr id="result" class="hide"></tr>
    {{#each contacts}}
-   <tr>
-      <td>{{name}}</td><td>{{phone}}</td><td>{{model}}</td><td>{{desc}}</td>
+   <tr id="contact-tr" class="row-list">
+      <td>{{name}}</td><td>{{phone}}</td><td>{{model}}</td><td>{{year}}</td><td>{{vin}}</td><td>{{desc}}</td>
    </tr>
    {{/each}}
 </table>
+</div>

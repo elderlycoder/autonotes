@@ -20,8 +20,10 @@ router.post('/', urlencodedParser, async (req, res) => {
   let name = req.body.name,
      phone = req.body.phone,
      model = req.body.model,
+     year = req.body.year,
+     vin = req.body.vin
      desc = req.body.desc
-     const contact = new Contact({name: name, phone: phone, model: model, desc: desc })
+     const contact = new Contact({name: name, phone: phone, model: model, year: year, vin: vin, desc: desc })
  
      try {
         await contact.save()

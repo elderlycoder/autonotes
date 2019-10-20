@@ -13,6 +13,8 @@ let list = []
 for (var i = 0; i < l.length; i++) {
     list.push(l[i].innerHTML);
 }
+
+console.log(list)
 document.querySelectorAll('#name-search').forEach(function (elem) {
     elem.addEventListener('input', e => {
         renderList(filter(e.target.value, list), result);
@@ -42,12 +44,12 @@ function getContact(event) {
     document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
     document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
 }
-
+// окно добавления нового контакта
 const popupNewContact = document.querySelector('#open-popup-new-contact')
 popupNewContact.addEventListener('click', function () {
     document.querySelector('#popup-new-contact').classList.remove('hide-popup');
 });
-
+// добавление названия запчасти из меню справа
 document.querySelectorAll('.select-part').forEach(function (elem) {
     elem.addEventListener('click', addPart)
 });
@@ -56,20 +58,22 @@ function addPart(event) {
     const partsList = document.querySelector('#todo-list')
     let listItem = createPartListItem(event.target)
     listItem.className = 'part-item';
+    let listOption = createPartListOption();
+    listItem.appendChild(listOption);
     partsList.appendChild(listItem);
 }
-// Создаем один элемент спика запчастей
+// Создаем один элемент списка запчастей
 function createPartListItem(title) {
     let inputPartName = document.createElement('input');
     inputPartName.setAttribute('value', title.textContent);
 
     let inputCount = document.createElement('input');
-    setAttributes(inputCount, { "type": "number", "value": "1", "id": "pyat" })
+    setAttributes(inputCount, { "type": "number", "name": "countPart", "value": "1", "id": "pyat" })
 
-    const deleteButton = document.createElement('button');
+    const deleteButton = document.createElement('button'); // создаем кнопку "Удалить"
     deleteButton.innerText = 'Удалить';
     setAttributes(deleteButton, {"class": "delete-button"});
-    deleteButton.addEventListener('click', function(event){
+    deleteButton.addEventListener('click', function(event){ // удаление элемента при нажатии на кнопку
         listItem.parentElement.removeChild(listItem);
         event.preventDefault();
     })
@@ -81,16 +85,40 @@ function createPartListItem(title) {
     return listItem;
 }
 
-// ф-ия удалить деталь
-function deletePart(){
-    event.preventDefault();
-    const todoList = document.getElementById('todo-list');
-    let listItem = this.parentNode;
-    console.log(listItem)
-    //todoList.removeChild(listItem);
+// создаем вложенный список с вариантами запчастей
+function createPartListOption() {
+    let listOption = document.createElement('ul');
+    setAttributes(listOption, {"class": "list-option"});
+
+    let listOptionItem = document.createElement('li');
+    setAttributes(listOptionItem, {"class": "li-list-option"});
+
+    let inputManufacturer = document.createElement('input');
+    setAttributes(inputManufacturer, { "type": "text", "placeholder": "Производитель"});
+
+    let inputPurchasePrice = document.createElement('input');
+    setAttributes(inputPurchasePrice, { "type": "number", "placeholder": "Закупка" });
+    let inputSellingPrice = document.createElement('input');
+    setAttributes(inputSellingPrice, { "type": "number", "placeholder": "Продажа" });
+
+    listOptionItem.appendChild(inputManufacturer);
+    listOptionItem.appendChild(inputPurchasePrice);
+    listOptionItem.appendChild(inputSellingPrice);
+    listOption.appendChild(listOptionItem);
+
+    return listOption;
 }
 
+// ф-ия удалить деталь
+// function deletePart(){
+//     event.preventDefault();
+//     const todoList = document.getElementById('todo-list');
+//     let listItem = this.parentNode;
+//     console.log(listItem)
+//     //todoList.removeChild(listItem);
+// }
 
+//добавление аттрибутов  к создаваемым элементам списка запчастей
 function setAttributes(el, attrs) {
     for (var key in attrs) {
         el.setAttribute(key, attrs[key]);

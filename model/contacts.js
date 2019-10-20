@@ -5,6 +5,8 @@ const schema = new Schema({
    phone: {type: String,
             required: [true, 'Укажите телефон']},
    model: {type: String},
+   year: {type: Number},
+   vin: {type: String},
    desc: {type: String}
 })
 
