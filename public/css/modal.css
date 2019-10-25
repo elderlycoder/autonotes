@@ -99,9 +99,7 @@
    display: none;
 }
 .menu-parts {
-   position: absolute;
-   right: 0;
-   width: 25%;
+   
 }
 
 .items-search >li:hover {
@@ -183,4 +181,15 @@
  #pyat::-webkit-inner-spin-button { 
    opacity: 1;
  }
-
+ /*устанавливаем длину <input type=number>*/
+ #dva {
+   width: 4em;
+ }
+ .tb-style {
+   border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
+   border: 1px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/ 
+   width: 95%;
+   margin: auto;
+}
+ .tb-style td, .tb-style th {border: 1px solid grey;}
+ /*.tb-style > th, td {border: 1px solid grey;}*/
