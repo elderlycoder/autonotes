@@ -7,7 +7,7 @@ const schema = new Schema({
    model: {type: String},
    year: {type: Number},
    vin: {type: String},
-   desc: {type: String}
+   descContact: {type: String}
 })
 
 module.exports = mongoose.model('Contact', schema)

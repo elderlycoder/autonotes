@@ -13,28 +13,7 @@ function getContact(event){
     inputSelectModel.setAttribute('value', target.dataset.model);
     document.querySelector('#popup-model').classList.add('hide-popup');
 }
-// Поиск контакта
-const result = document.getElementById('result');
-let tr = document.querySelectorAll('#contact-tr');
-let list = []
-    for (var i = 0; i < tr.length; i++) {
-    list.push(tr[i].innerHTML);
-    }
-    
-document.querySelector('#name-search').addEventListener('input', e => {
-   renderList(filter(e.target.value, list), result);
-    document.querySelector('.row-list').classList.add('hide');
-    result.classList.remove('hide')
-    })
 
-function filter(val, _list) {
-    return _list.filter(it => it.toLowerCase().indexOf(val.toLowerCase()) !== -1)
-}
-
-function renderList(_list = [], el) {
-    el.innerHTML = '<tr><th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Год</th><th>VIN</th><th>Примечание</th></tr>' +_list.map(item => `<tr>${item}</tr>`).join('');
-}
-// END поиск контакта
 
  popupClose.forEach(function (item) {
     item.addEventListener('click', function () {

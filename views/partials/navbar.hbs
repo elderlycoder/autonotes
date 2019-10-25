@@ -1,24 +1,30 @@
-<nav>
-    <div class="nav-wrapper">
-       <a href="#" class="brand-logo">AutoNotes</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Главная</a></li>
-        <li><a href="/orders">Заказы</a></li>
-        <li><a href="/addorder">Добавить заказ</a></li>
-        <li><a href="/contacts">Контакты</a></li>
-       
-      {{#if isAuth}}
-        <li class="active" ><a href="/auth/logout">Выйти</a></li>
-      {{else}}
-      
-         {{#if isLogin}}
-        <li class="active" ><a href="/auth/login#login">Вход</a></li>
-        {{else}}
-        <li><a href="/auth/login#login">Вход</a></li>
-        {{/if}}
-      {{/if}}
-       
-       
-      </ul>
+
+
+    <div class="container">
+      <nav class="navbar navbar-light navbar-expand-lg bg-warning">
+        <a href="#" class="navbar-brand">AutoNotes</a>
+        <button class="navbar-toggler" type="button" data-target="#my-nav" data-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"><a class="nav-link" href="/">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="/orders">Заказы</a></li>
+          <li class="nav-item"><a class="nav-link" href="/addorder">Добавить заказ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+
+          {{#if isAuth}}
+          <li class="active"><a class="nav-link" href="/auth/logout">Выйти</a></li>
+          {{else}}
+
+          {{#if isLogin}}
+          <li class="active"><a class="nav-link" href="/auth/login#login">Вход</a></li>
+          {{else}}
+          <li class="nav-item"><a class="nav-link" href="/auth/login#login">Вход</a></li>
+          {{/if}}
+          {{/if}}
+        </ul>
+      </div>
+      </nav>
     </div>
-  </nav>
+  

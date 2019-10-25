@@ -99,7 +99,9 @@
    display: none;
 }
 .menu-parts {
-   
+   position: absolute;
+   right: 10;
+   width: 100%;  
 }
 
 .items-search >li:hover {
