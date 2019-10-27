@@ -42,6 +42,7 @@ function getContact(event) {
     document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
     document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
     document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
+    document.querySelector('input[name="id"]').setAttribute('value', target.dataset.id);
 }
 // окно добавления нового контакта
 const popupNewContact = document.querySelector('#open-popup-new-contact')
