@@ -20,9 +20,7 @@ app.use('/', routes);
 async function start(){
    try{
    const url = "mongodb://localhost:27017/test"
-   //const url = 'mongodb+srv://ryocka:<aRvVRCUmXL682eFY>@cluster0-5lfxm.mongodb.net/test?retryWrites=true&w=majority'
-
-   await mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true});
+   await mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false});
    app.listen(PORT, function () { // с помощью метода listen передаем номер порта на котором мы хотим слушать наше приложение app
       console.log(`Server is running on port: ${PORT}`);
    });

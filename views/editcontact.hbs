@@ -39,6 +39,10 @@
 
 <button>Сохранить</button>
 </form>
+<form action="/contacts/delete" method="post">
+    <input type="hidden" name="id" value="{{contact.id}}">
+    <button class="btn-contact-delete">Удалить контакт</button>
+</form>
 <!--модальное окна выбора маки и модели -->
 <div id="popup-model" class="popup hide-popup">
     <div class="popup-content">

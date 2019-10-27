@@ -1,6 +1,5 @@
 let inputSearchContact = document.querySelector('#search-contact'), // получаем input при клике на который - окно с фильтрацией существующих заказов
     popupClose = document.querySelectorAll('.close'); // крестик закрытия окна
-//TODO - сделать рефакторинг
 //Поиск и получение существующего контакта
 inputSearchContact.addEventListener('click', function () {
     document.querySelector('#popup-search-contact').classList.remove('hide-popup');
@@ -12,20 +11,7 @@ let list = []
     for (var i = 0; i < tr.length; i++) {
     list.push(tr[i].innerHTML);
     }
-// const table = document.querySelector('#table-contact') // получаем таблицу с контактами
-// let l = document.querySelectorAll('.contacts-list')
-// let list = []
-// for (var i = 0; i < l.length; i++) {
-//     list.push(l[i].innerHTML);
-// }
 
-// console.log(list)
-// document.querySelectorAll('#name-search').forEach(function (elem) {
-//     elem.addEventListener('input', e => {
-//         renderList(filter(e.target.value, list), result);
-//         document.querySelector('.row-list').classList.add('hide');
-//     })
-// })
 document.querySelector('#name-search').addEventListener('input', e => {
     renderList(filter(e.target.value, list), result);
      document.querySelector('.row-list').classList.add('hide');
@@ -43,21 +29,16 @@ document.querySelector('#name-search').addEventListener('input', e => {
 document.querySelectorAll('.items-search').forEach(function (elem) {
     elem.addEventListener('click', getContact)
 });
-// function filter(val, _list) {
-//     return _list.filter(it => it.toLowerCase().indexOf(val.toLowerCase()) !== -1)
-// }
 
-// function renderList(_list = [], el = document.body) {
-//     el.innerHTML = _list.map(item => `<li>${item}</li>`).join('');
-// }
+
 
 function getContact(event) {
     let target = event.target; // получаем элемент на котором произошло событие
-    const parent = target.parentElement
-    //inputSearchContact.setAttribute('value', target.parentElement.textContent);
-    inputSearchContact.textContent = target.parentElement.textContent;
+    const parent = target.parentElement,
+          spanResult = document.querySelector('#contact-result');
+    spanResult.textContent = "Имя: " + parent.children[0].textContent + "   Авто: " + parent.children[2].textContent + "     Тел: " + parent.children[1].textContent;
+    document.querySelector('.contact-result').classList.remove('hide');
     document.querySelector('#popup-search-contact').classList.add('hide-popup');
-    // document.querySelector('.contact-data').classList.remove('hide');
     document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
     document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
     document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
@@ -73,11 +54,11 @@ popupNewContact.addEventListener('click', function () {
 
   function getNewContact(event){
     const spanResult = document.querySelector('#contact-result');
-    console.log(spanResult)
     const formNewContact = document.querySelector('.form-new-contact');
-    spanResult.textContent = document.querySelector('input[id=new-name]').value;
+    spanResult.textContent = document.querySelector('input[id=name]').value;
     document.querySelector('.contact-result').classList.remove('hide');
-    event.preventDefault();
+    document.querySelector('#popup-new-contact').classList.add('hide-popup');
+    //event.preventDefault();
 
   }
 //выбираем марку и модель и вставляем в input

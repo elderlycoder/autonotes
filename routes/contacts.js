@@ -14,20 +14,37 @@ router.get('/', async (req, res) => {
 
    }); 
 });
+// добавление контакта
+router.post('/', urlencodedParser, async (req, res) => {
+ let name = req.body.name,
+    phone = req.body.phone,
+    model = req.body.model,
+    year = req.body.year,
+    vin = req.body.vin,
+    descContact = req.body.descContact;
+    const contact = new Contact({name: name, phone: phone, model: model, year: year, vin: vin, descContact: descContact })
+
+    try {
+       await contact.save()
+       //res.redirect('/')
+     } catch (e) {
+       console.log(e)
+     }
+   res.redirect('/contacts')
+   })
 // редактирование контакта
 router.get('/:id/edit', async(req, res) => {
   const isEditContact = true;
   if (!req.query.allow){
     return res.redirect('/contacts');
   }
-
   const contact = await Contact.findById(req.params.id)
   res.render('editcontact', {
     title: 'Редактировать контакт',
     contact,
     isEditContact
   })
-})
+});
 
 router.post('/edit',urlencodedParser, async (req, res) => {
   console.log(req.body.phone)
@@ -35,25 +52,15 @@ router.post('/edit',urlencodedParser, async (req, res) => {
   res.redirect('/contacts');
 })
 
-
-router.post('/', urlencodedParser, async (req, res) => {
-   console.log(req.body)
-  let name = req.body.name,
-     phone = req.body.phone,
-     model = req.body.model,
-     year = req.body.year,
-     vin = req.body.vin,
-     descContact = req.body.descContact;
-     const contact = new Contact({name: name, phone: phone, model: model, year: year, vin: vin, descContact: descContact })
- 
-     try {
-        await contact.save()
-        //res.redirect('/')
-      } catch (e) {
-        console.log(e)
-      }
+// Удаление контакта
+router.post('/delete', urlencodedParser, async (req, res) => {
+  try{
+    await Contact.deleteOne({_id: req.body.id })
     res.redirect('/contacts')
-    })
+  } catch (e){
+    console.log(e);
+  }
+})
 
 
 

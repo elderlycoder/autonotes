@@ -31,11 +31,11 @@ router.post('/', urlencodedParser, async (req, res) => {
 
     try {
        await contact.save()
-       //res.redirect('/addorder')
+       res.redirect('/addorder')
      } catch (e) {
-       console.log(e)
+       console.log(e);
+       res.redirect('/contacts');
      }
-   res.redirect('/contacts')
    })
 
 // router.post('/', urlencodedParser, async (req, res) => {
