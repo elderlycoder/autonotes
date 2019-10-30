@@ -2,17 +2,17 @@
    <div class="row">
       <div class="col-lg-9">
          <h1>Добавление заказа</h1>
-         <div>
+         {{!-- <div>
             <button id="search-contact">Найти в базе</button> или добавить
             <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
          </div>
          <!-- блок куда выводится ин-ия о клиенте-->
          <div class="contact-result hide">
             <p id="contact-result"></p>
-         </div>
+         </div> --}}
          {{#if isNewContact}}
             <div>
-               <p>Имя: {{end.name}} Авто: {{end.model}} {{end.id}}</p>
+               <p>Имя: {{end.name}} Авто: {{end.model}}   Тел.: {{end.phone}}</p>
             </div>
          {{/if}}
          <!-- форма для отправки ин-ии о заказе-->
@@ -57,7 +57,7 @@
          </div>
       </div>
    </div>
-   <div id="popup-search-contact" class="popup hide-popup">
+   <!-- <div id="popup-search-contact" class="popup hide-popup">
       <div class="popup-content">
          <div class="popup-header">
             <h3 class="modal-h3"> Окно для выбора существующих контактов</h3>
@@ -94,7 +94,7 @@
          </div>
       </div>
    </div>
-<!-- модальное окно добавления нового контакта -->
+ модальное окно добавления нового контакта
    <div id="popup-new-contact" class="popup hide-popup">
       <div class="popup-content">
          <div class="popup-header">
@@ -102,9 +102,9 @@
             <span class="close modal-close"> &times;</span>
          </div>
          <div class="form-modal-model">
-            <!--<div class="row-modal-model">-->
-            <form action="/addorder/newcontact" method="post" class="form-new-contact">
-               <!--<label for="model">Имя: </label>-->
+            <div class="row-modal-model">
+            <form action="/addorder" method="post" class="form-new-contact">
+               <label for="model">Имя: </label>
                <input type="text" name="name" id="name" placeholder="Имя">
                <input type="text" name="phone" placeholder="Телефон">
                <input type="text" id="model" name="model" placeholder="Марка и модель">
@@ -144,7 +144,7 @@
          </div>
       </div>
    </div>
-   <!--модальное окна выбора маки и модели -->
+   модальное окна выбора маки и модели
    <div id="popup-model" class="popup hide-popup">
       <div class="popup-content">
          <div class="popup-header">
@@ -240,6 +240,6 @@
 
          </div>
       </div>
-   </div>
+   </div> -->
    <!--END модальное окна выбора маки и модели -->
 </div>

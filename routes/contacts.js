@@ -4,7 +4,7 @@ const router = Router();
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
-
+// страница /contacts - вывводим все контакты
 router.get('/', async (req, res) => {
    const isAddContact = true;
    const contacts = await Contact.find()
@@ -22,7 +22,7 @@ router.post('/', urlencodedParser, async (req, res) => {
     year = req.body.year,
     vin = req.body.vin,
     descContact = req.body.descContact;
-    const contact = new Contact({name: name, phone: phone, model: model, year: year, vin: vin, descContact: descContact })
+      const contact = new Contact({name: name, phone: phone, model: model, year: year, vin: vin, descContact: descContact })
 
     try {
        await contact.save()
@@ -39,6 +39,7 @@ router.get('/:id/edit', async(req, res) => {
     return res.redirect('/contacts');
   }
   const contact = await Contact.findById(req.params.id)
+  console.log(contact)
   res.render('editcontact', {
     title: 'Редактировать контакт',
     contact,
@@ -47,7 +48,6 @@ router.get('/:id/edit', async(req, res) => {
 });
 
 router.post('/edit',urlencodedParser, async (req, res) => {
-  console.log(req.body.phone)
   await Contact.findByIdAndUpdate(req.body.id, req.body);
   res.redirect('/contacts');
 })
