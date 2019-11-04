@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
 </head>
+
 <body>
+   <div id="wrapper">
+      <ul id="list">
+        
+      </ul>
+      <textarea id="textarea" cols="30" rows="10"></textarea>
+      <input type="text" id="input">
+   </div>
    <script>
-      let fruit = ["яблоки", "груши", "сливы", "абрикосы", "персики"];
-      let number = ["1", "2", "", "4", "5"];
-      let parts = [];
+      let notes = {};
+      let list = document.querySelector('#list');
+      let input = document.querySelector('#input');
+      let textarea = document.querySelector('#textarea');
+
+      textarea.addEventListener('blur', function () {
+         let date = new Date; // создаем новый объект класса Data
+         let now = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ':'; // из объекта дата с помощью нужных методов формируеи вид записи
+         notes[now] = this.value; //! в объекте notes создаем запись вида - ключ (now): значение (value записи в textarea)
+         console.log(notes)
+         this.value = ''; // при событии blur область textarea очищается
+         let li = document.createElement('li');
+         li.innerHTML = now;
+         list.appendChild(li);
+         
+         li.addEventListener('click', function(){
+            let text = notes[this.innerHTML];
+            console.log(text)
+         })
 
 
-      for(let i = 0; i < fruit.length; i++) {
-         parts.push(fruit[i]);
-         parts.push(number[i]);
-      }
-         console.log(parts)
+      })
+      input.addEventListener('blur', function () {
+         let date = new Date;
+         let now = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ':';
+         console.log(this.value)
+         notes[now] = this.value;
+         console.log(notes)
+         this.value = ''; // при событии blur область textarea очищается
+         let li = document.createElement('li');
+         li.innerHTML = now;
+         list.appendChild(li);
+      })
 
-      </script>
+   </script>
 </body>
+
 </html>

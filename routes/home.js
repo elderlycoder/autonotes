@@ -3,9 +3,10 @@ const router = Router();
 
 
 router.get('/', (req, res) => {
+   const isHome = true;
    res.render("index",{
       title: 'Все автосервисы. Контакты, режим работы, услуги, отзывы', 
-      isHome: true
+      isHome
    }); 
 });
 

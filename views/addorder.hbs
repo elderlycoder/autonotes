@@ -11,9 +11,9 @@
             <p id="contact-result"></p>
          </div>
          {{#if isNewContact}}
-            <div>
-               <p>Имя: {{end.name}} Авто: {{end.model}} {{end.id}}</p>
-            </div>
+         <div>
+            <p>Имя: {{end.name}} Авто: {{end.model}} {{end.id}}</p>
+         </div>
          {{/if}}
          <!-- форма для отправки ин-ии о заказе-->
          <form action="/addorder" method="POST">
@@ -26,7 +26,7 @@
             <hr>
             <!--заготовка под список добавляемых запчастей-->
             <ol id="parts-list"></ol>
-            
+
 
             <button type="submit" name="button">Сохранить</button>
          </form>
@@ -39,17 +39,149 @@
             <div class="row-part">
                <ul class="pmenuu">
                   <li class="select-part">Новая запчасть</li>
-                  <li class="select-model" id="audi" data-model="Audi">Подвеска
+                  <li class="select-grup">Подвеска
                      <ul class="ssubmenuu">
-                        <li class="select-part">Амортизатор</li>
-                        <li class="select-part">Амортизаторы передние комплпект</li>
-                        <li class="select-part">Балка задняя</li>
-                        <li class="select-part">Болт развала задних колёс</li>
-                        <li class="select-part">Втулка стабилизатора</li>
-                        <li class="select-part">Пружина</li>
-                        <li class="select-part">Рычаг</li>
-                        <li class="select-part">Стойка стабилизатора</li>
-                        
+                        <li class="select-part"><a href="#">Амортизатор</a></li>
+                        <li class="select-part"><a href="#">Амортизаторы передние комплпект</a></li>
+                        <li class="select-part"><a href="#">Балка задняя</a></li>
+                        <li class="select-part"><a href="#">Болт развала задних колёс</a></li>
+                        <li class="select-part"><a href="#">Втулка стабилизатора</a></li>
+                        <li class="select-part"><a href="#">Пружина</a></li>
+                        <li class="select-part"><a href="#">Рычаг</a></li>
+                        <li class="select-part"><a href="#">Стойка стабилизатора</a></li>
+                     </ul>
+                  </li>
+                  <li class="select-grup">Рулевое управление
+                     <ul class="ssubmenuu">
+                        <li class="select-part"><a href="#">Бачок гидроусилителя</a></li>
+                        <li class="select-part"><a href="#">Вал рулевого механизма</a></li>
+                        <li class="select-part"><a href="#">Кардан рулевой</a></li>
+                        <li class="select-part"><a href="#">Крестовина рулевого кардана</a></li>
+                        <li class="select-part"><a href="#">Крышка бачка г/у</a></li>
+                        <li class="select-part"><a href="#">Масло в ГУР</a></li>
+                        <li class="select-part"><a href="#">Наконечник рулевой</a></li>
+                        <li class="select-part"><a href="#">Насос гидроусилителя</a></li>
+                        <li class="select-part"><a href="#">Пыльник рулевой рейки</a></li>
+                        <li class="select-part"><a href="#">Ремкомплект насоса ГУР</a></li>
+                        <li class="select-part"><a href="#">Ремкомплект рулевой рейки</a></li>
+                        <li class="select-part"><a href="#">Радиатор гидроусилителя</a></li>
+                        <li class="select-part"><a href="#">Рейка рулевая</a></li>
+                        <li class="select-part"><a href="#">С/блок рулевой рейки</a></li>
+                        <li class="select-part"><a href="#">Трубка гидроусилителя</a></li>
+                        <li class="select-part"><a href="#">Тяга рулевая</a></li>
+                        <li class="select-part"><a href="#">Шланг гидроусилителя</a></li>
+                     </ul>
+                  </li>
+                  <li class="select-grup">Тормозная система
+                     <ul class="ssubmenuu">
+                        <li class="select-part"><a href="#">Барабан тормозной</a></li>
+                        <li class="select-part"><a href="#">Бачок тормозного цилиндра</a></li>
+                        <li class="select-part"><a href="#">Датчик износа колодок</a></li>
+                        <li class="select-part"><a href="#">Диск тормозной</a></li>
+                        <li class="select-part"><a href="#">Диски тормозные к-кт</a></li>
+                        <li class="select-part"><a href="#">Комплект установочный задних колодок</a></li>
+                        <li class="select-part"><a href="#">Колодки (барабанные)</a></li>
+                        <li class="select-part"><a href="#">Колодки (дисковые)</a></li>
+                        <li class="select-part"><a href="#">Колодки ручного тормоза</a></li>
+                        <li class="select-part"><a href="#">Крышка бачка тормозной жидкости</a></li>
+                        <li class="select-part"><a href="#">Направляющая суппорта</a></li>
+                        <li class="select-part"><a href="#">Направляющие суппорта к-кт<</a>/li>
+                        <li class="select-part"><a href="#">Планка регулировочная</a></li>
+                        <li class="select-part"><a href="#">Поршень суппорта</a></li>
+                        <li class="select-part"><a href="#">Пыльник направляющей суппорта</a></li>
+                        <li class="select-part"><a href="#">Пыльник суппорта</a></li>
+                        <li class="select-part"><a href="#">Р/к суппорта</a></li>
+                        <li class="select-part"><a href="#">Скоба суппорта</a></li>
+                        <li class="select-part"><a href="#">Суппорт тормозной</a></li>
+                        <li class="select-part"><a href="#">Трос стояночного тормоза</a></li>
+                        <li class="select-part"><a href="#">Трубка тормозная</a></li>
+                        <li class="select-part"><a href="#">Шланг тормозной</a></li>
+                        <li class="select-part"><a href="#">Штуцер томозной трубки</a></li>
+                     </ul>
+                  </li>
+                  <li class="select-grup">Трансмиссия
+                     <ul class="ssubmenuu">
+                        <li class="select-part">Бачок главного цилиндра сцепления</li>
+                        <li class="select-part">Болт шруса</li>
+                        <li class="select-part">Вал карданный</li>
+                        <li class="select-part">Вал раздатки</li>
+                        <li class="select-part">Вал привода</li>
+                        <li class="select-part">Вал привода промежуточный</li>
+                        <li class="select-part">Вилка включения передачи</li>
+                        <li class="select-part">Вилка сцепления</li>
+                        <li class="select-part">Гайка ступицы</li>
+                        <li class="select-part">Гайка ШРУСа</li>
+                        <li class="select-part">Диск сцепления</li>
+                        <li class="select-part">Комплект сцепления</li>
+                        <li class="select-part">Корзина сцепления</li>
+                        <li class="select-part">Крестовина карданного вала</li>
+                        <li class="select-part">Крышка ступицы</li>
+                        <li class="select-part">Кулиса КПП</li>
+                        <li class="select-part">Подшипник выжимной</li>
+                        <li class="select-part">Подшипник ступицы</li>
+                        <li class="select-part">Подшипник подвесной</li>
+                        <li class="select-part">Привод в сборе</li>
+                        <li class="select-part">Пыльник ШРУСа</li>
+                        <li class="select-part">Р/к цилиндра сцепления</li>
+                        <li class="select-part">Радиатор АКПП</li>
+                        <li class="select-part">Сальник ступицы</li>
+                        <li class="select-part">Ступица</li>
+                        <li class="select-part">Трос КПП</li>
+                        <li class="select-part">Трос сцепления</li>
+                        <li class="select-part">Трос спидометра</li>
+                        <li class="select-part">Фильтр АКПП</li>
+                        <li class="select-part">Цилиндр сцепления</li>
+                        <li class="select-part">ШРУС</li>
+                        <li class="select-part">Шпилька колеса</li>
+                        <li class="select-part">Щуп масляный</li>
+                     </ul>
+                  </li>
+                  <li class="select-grup">Датчики
+                     <ul class="ssubmenuu">
+                        <li class="select-part">Датчик ABS</li>
+                        <li class="select-part">Датчик абсолютного давления</li>
+                        <li class="select-part">Датчик давления в шине</li>
+                        <li class="select-part">Датчик давления масла</li>
+                        <li class="select-part">Датчик давления топлива</li>
+                        <li class="select-part">Датчик детонации</li>
+                        <li class="select-part">Датчик дождя</li>
+                        <li class="select-part">Датчик импульсов</li>
+                        <li class="select-part">Датчик кислородный / лямбда-зонд</li>
+                        <li class="select-part">Датчик положения коленвала</li>
+                        <li class="select-part">Датчик положения распредвала</li>
+                        <li class="select-part">Датчик спидометра</li>
+                        <li class="select-part">Датчик температуры</li>
+                        <li class="select-part">Датчик температуры воздуха</li>
+                        <li class="select-part">Датчик уровня в бачок омывателя</li>
+                        <li class="select-part">Датчик уровня масла</li>
+                        <li class="select-part">Датчик уровня топлива</li>
+                     </ul>
+                  </li>
+                  <li class="select-grup">Электрика
+                     <ul class="ssubmenuu">
+                        <li class="select-part"><a href="#">Аккумулятор</a></li>
+                        <li class="select-part"><a href="#">Активатор замка</a></li>
+                        <li class="select-part"><a href="#">Вентилятор радиатора</a></li>
+                        <li class="select-part"><a href="#">Выключатель концевой</a></li>
+                        <li class="select-part"><a href="#">Генератор</a></li>
+                        <li class="select-part"><a href="#">Датчик вентилятора</a></li>
+                        <li class="select-part"><a href="#">Датчик включения заднего хода</a></li>
+                        <li class="select-part"><a href="#">Замок зажигания</a></li>
+                        <li class="select-part"><a href="#">Катушка зажигания</a></li>
+                        <li class="select-part"><a href="#">Контактная группа замка зажигания</a></li>
+                        <li class="select-part"><a href="#">Лампа</a></li>
+                        <li class="select-part"><a href="#">Моторчик вентилятора</a></li>
+                        <li class="select-part"><a href="#">Моторчик корректора фар</a></li>
+                        <li class="select-part"><a href="#">Моторчик отопителя</a></li>
+                        <li class="select-part"><a href="#">Моторчик стеклоочистителя</a></li>
+                        <li class="select-part"><a href="#">Моторчик стеклоподъёмника</a></li>
+                        <li class="select-part"><a href="#">Насос омывателя</a></li>
+                        <li class="select-part"><a href="#">Насос омывателя фар</a></li>
+                        <li class="select-part"><a href="#">Насос топливный</a></li>
+                        <li class="select-part"><a href="#">Переключатель подрулевой</a></li>
+                        <li class="select-part"><a href="#">Плата фонаря</a></li>
+                        <li class="select-part"><a href="#">Предохранитель</a></li>
+                        <li class="select-part"><a href="#">Стартер</a></li>
                      </ul>
                   </li>
                </ul>
@@ -94,7 +226,7 @@
          </div>
       </div>
    </div>
-<!-- модальное окно добавления нового контакта -->
+   <!-- модальное окно добавления нового контакта -->
    <div id="popup-new-contact" class="popup hide-popup">
       <div class="popup-content">
          <div class="popup-header">

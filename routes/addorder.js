@@ -1,6 +1,7 @@
 const {Router} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
-const Order = require('../model/order'); //
+const {Variants, Parts, Order} = require('../model/order');
 const Contact = require('../model/contacts'); //
+
 const router = Router();
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -21,40 +22,61 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', urlencodedParser, async (req, res) => {
+  if(req.body){
   let id = req.body.id,
     created = req.body.start,
     desc = req.body.desc,
     partname = req.body.partname,
     selectside = req.body.selectside,
     selectplace = req.body.selectplace,
-    countPart = req.body.countpart;
-
+    countPart = req.body.countpart,
+    manufacturer = req.body.manufacturer,
+    purchaseprice = req.body.purchaseprice,
+    sellingprice = req.body.sellingprice;
+    console.log(req.body)
+  let variants = [];
+    for (let i = 0; i < manufacturer.length; i++) {
+      let variant = {};
+      variant.manufacturer = manufacturer[i];
+      variant.purchaseprice = purchaseprice[i];
+      variant.sellingprice = sellingprice[i];
+      variants.push(variant);
+    }
+   // console.log(variants)
+    const v = new Variants({
+    varaiant: variants
+  })
+//console.log(v)
   let parts = [];
-
   for (let i = 0; i < partname.length; i++) {
-    let part = [];
-    part.push(partname[i]);
-    part.push(selectside[i]);
-    part.push(selectplace[i]);
-    part.push(countPart[i]);
-
+    let part = {};
+    part.partname = partname[i];
+    part.selectside = selectside[i];
+    part.selectplace = selectplace[i];
+    part.CountPart = countPart[i];
     parts.push(part)
   }
-  let json = JSON.stringify(parts)
-  console.log(json)
-  const p = new Parts ({part: json})
+  const p = new Parts({
+    part: parts,
+    variants: v
+  })
+   // console.log(p)
   const order = new Order({
     idContact: id,
     created: created,
     desc: desc,
     parts: p
   })
-
+  //console.log(order)
   try {
     await order.save();
     res.redirect('/')
   } catch (e) {
     console.log(e)
+  }
+  
+} else {
+  alert ('Добавьте запчасти!')
   }
 })
 

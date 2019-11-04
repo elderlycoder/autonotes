@@ -124,7 +124,39 @@
    cursor: pointer;
    color: #5d56d5
  }
-
+/* меню с деталями*/
+.pmenuu ul{
+   list-style: none;
+}
+ul .pmenuu{
+   list-style: none;
+}
+.pmenuu li{
+   margin: 8px;
+   list-style: none;
+}
+.pmenuu a{
+   color: green;
+   padding: 5px;
+}
+.pmenuu a:hover{
+   padding: 1px 2px 1px 0 ;
+}
+.select-grup{
+   position: relative;
+}
+.ssubmenuu {
+   position: absolute;
+   background-color: white;
+   width: 100%;
+   right: 100%;
+   top: -9999em;
+   opacity: 0;
+}
+.select-grup:hover .ssubmenuu{
+   opacity:1;
+   top: 0;
+}
  ul.mmenuu {
    text-align: left;
    margin: 3px;
@@ -135,9 +167,9 @@
    /* Считаем координаты относительно исходного места*/
    position: relative;
  }
- ul.pmenuu > li {
+ /*ul.pmenuu > li {
    position: relative;
- }
+ }*/
  ul.mmenuu > li {
    /* Делаю элементы блочными: */
    display: block;
@@ -149,65 +181,47 @@
    /* Задаю цвет.
    background-color: #da570f;*/
  }
- ul.pmenuu > li {
-   /* Делаю элементы блочными: */
+/* ul.pmenuu > li {
    display: block;
    color: #000;
-   /* Задаю отступ 10px. */
-   padding: 3px;
-   /* Убираю форматирование*/
+  padding: 3px;
    text-decoration: none;
-   /* Задаю цвет.
-   background-color: #da570f;*/
- }
+  background-color: #da570f;
+ }*/
  ul.mmenuu > li:hover {
    /* Задаю цвет при наведении. */
    background-color: #fff;
    color: #5d56d5;
  }
- ul.pmenuu > li:hover {
-   /* Задаю цвет при наведении. */
-   background-color: #fff;
+ /*ul.pmenuu > li:hover {
+  background-color: #fff;
    color: #5d56d5;
- }
- ul.ssubmenuu {
-   /*position: absolute;*/
+ }*/
+ /*ul.ssubmenuu {
    width: auto;
    top: 1.5rem;
-   /*left:0.3rem;*/
-   /* Делаю субменю скрытыми. */
    display: none;
-   /* Цвет — белый. */
    background-color: white;
- }
- ul.ssubmenuu > li {
-   /* Блочное расположение элементов*/
+ }*/
+ /*ul.ssubmenuu > li {
    display: block;
- }
- ul.ssubmenuu > li {
-   /* Делаю элементы блочными. */
+ }*/
+ /*ul.ssubmenuu > li {
    display: block;
-   /* Убираю форматирование*/
-  /* text-decoration: none;*/
-   /* Задаю отступ. */
+   text-decoration: none;
    padding: 5px;
-   /* Задаю цвет. */
    color: #000;
-   /* Еще цвет. */
    background-color: #fff;
- }
- ul.ssubmenuu > li:hover {
-   /* Задаю подчеркивание при наведении*/
+ }*/
+/* ul.ssubmenuu > li:hover {
    text-decoration: underline;
- }
+ }*/
  ul.mmenuu > li:hover > ul.ssubmenuu {
-   /* Делаю элементы блочными. */
    display: block;
  }
- ul.pmenuu > li:hover > ul.ssubmenuu {
-   /* Делаю элементы блочными. */
+ /*ul.pmenuu > li:hover > ul.ssubmenuu {
    display: block;
- }
+ }*/
 
  /*делаем стрелочки у input number*/
  #pyat::-webkit-inner-spin-button { 

@@ -8,23 +8,23 @@ inputSearchContact.addEventListener('click', function () {
 const result = document.getElementById('result');
 let tr = document.querySelectorAll('#contact-tr');
 let list = []
-    for (var i = 0; i < tr.length; i++) {
+for (var i = 0; i < tr.length; i++) {
     list.push(tr[i].innerHTML);
-    }
+}
 
 document.querySelector('#name-search').addEventListener('input', e => {
     renderList(filter(e.target.value, list), result);
-     document.querySelector('.row-list').classList.add('hide');
-     result.classList.remove('hide')
-     })
- 
- function filter(val, _list) {
-     return _list.filter(it => it.toLowerCase().indexOf(val.toLowerCase()) !== -1)
- }
- 
- function renderList(_list = [], el=document.body) {
-     el.innerHTML = '<tr><th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Год</th><th>Примечание</th></tr>' +_list.map(item => `<tr>${item}</tr>`).join('');
- }
+    document.querySelector('.row-list').classList.add('hide');
+    result.classList.remove('hide')
+})
+
+function filter(val, _list) {
+    return _list.filter(it => it.toLowerCase().indexOf(val.toLowerCase()) !== -1)
+}
+
+function renderList(_list = [], el = document.body) {
+    el.innerHTML = '<tr><th>Имя</th><th>Телефон</th><th>Автомобиль</th><th>Год</th><th>Примечание</th></tr>' + _list.map(item => `<tr>${item}</tr>`).join('');
+}
 
 document.querySelectorAll('.items-search').forEach(function (elem) {
     elem.addEventListener('click', getContact)
@@ -35,13 +35,10 @@ document.querySelectorAll('.items-search').forEach(function (elem) {
 function getContact(event) {
     let target = event.target; // получаем элемент на котором произошло событие
     const parent = target.parentElement,
-          spanResult = document.querySelector('#contact-result');
+        spanResult = document.querySelector('#contact-result');
     spanResult.textContent = "Имя: " + parent.children[0].textContent + "   Авто: " + parent.children[2].textContent + "     Тел: " + parent.children[1].textContent;
     document.querySelector('.contact-result').classList.remove('hide');
     document.querySelector('#popup-search-contact').classList.add('hide-popup');
-    // document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
-    // document.querySelector('input[name="phone"]').setAttribute('value', parent.children[1].textContent);
-    // document.querySelector('input[name="model"]').setAttribute('value', parent.children[2].textContent);
     document.querySelector('input[name="id"]').setAttribute('value', target.dataset.id);
 }
 // окно добавления нового контакта
@@ -49,11 +46,11 @@ const popupNewContact = document.querySelector('#open-popup-new-contact')
 popupNewContact.addEventListener('click', function () {
     document.querySelector('#popup-new-contact').classList.remove('hide-popup');
 });
- // выводим данные вновь добавленного контакта
-  const btnSaveNewContact = document.querySelector('#btn-save-new-contact');
-  btnSaveNewContact.addEventListener('click', getNewContact); // попробовать заменить на форму с событием 'submit'
+// выводим данные вновь добавленного контакта
+const btnSaveNewContact = document.querySelector('#btn-save-new-contact');
+btnSaveNewContact.addEventListener('click', getNewContact); // попробовать заменить на форму с событием 'submit'
 
-  function getNewContact(event){
+function getNewContact(event) {
     const spanResult = document.querySelector('#contact-result');
     const formNewContact = document.querySelector('.form-new-contact');
     spanResult.textContent = document.querySelector('input[id=name]').value;
@@ -61,16 +58,16 @@ popupNewContact.addEventListener('click', function () {
     document.querySelector('#popup-new-contact').classList.add('hide-popup');
     //event.preventDefault();
 
-  }
+}
 //выбираем марку и модель и вставляем в input
 const carModel = document.querySelector('.row-modal-model'),
-      inputSelectModel = document.querySelector('#model');
+    inputSelectModel = document.querySelector('#model');
 inputSelectModel.addEventListener('click', function () {
-        document.querySelector('#popup-model').classList.remove('hide-popup');
-    });
+    document.querySelector('#popup-model').classList.remove('hide-popup');
+});
 carModel.addEventListener('click', getModel)
 
-function getModel(event){
+function getModel(event) {
     let target = event.target; // получаем элемент на котором произошло событие
     inputSelectModel.setAttribute('value', target.dataset.model);
     document.querySelector('#popup-model').classList.add('hide-popup');
@@ -81,11 +78,13 @@ document.querySelectorAll('.select-part').forEach(function (elem) {
 });
 
 function addPart(event) {
-    const partsList = document.querySelector('#parts-list')
+    const partsList = document.querySelector('#parts-list'); // получаем элемент список
     let listItem = createPartListItem(event.target)
     listItem.className = 'part-item';
+
     let listOption = createPartListOptionUl();
     let addVariant = createLinkDAddVariant();
+
     listOption.appendChild(addVariant);
     listItem.appendChild(listOption);
     partsList.appendChild(listItem);
@@ -100,7 +99,7 @@ function createPartListItem(title) {
     let selectSide = document.createElement('select'); // 
     selectSide.setAttribute('name', 'selectside');
     let array = ["Передн.", "Задн.", "Слева", "Справа", "Передн. слева", "Передн. справа", "Передн. слева и справа", "Задн. слева", "Задн. справа", "Задн. слева и справа"];
-    let optionOne = document.createElement('option');// первый option делаем отдельно без value
+    let optionOne = document.createElement('option'); // первый option делаем отдельно без value
     optionOne.text = 'Сторона';
     selectSide.appendChild(optionOne);
     for (let i = 0; i < array.length; i++) {
@@ -122,12 +121,20 @@ function createPartListItem(title) {
         selectPlace.appendChild(option);
     }
     let inputCount = document.createElement('input');
-    setAttributes(inputCount, { "type": "number", "name": "countpart", "value": "1", "id": "pyat", "class": "dva" })
+    setAttributes(inputCount, {
+        "type": "number",
+        "name": "countpart",
+        "value": "1",
+        "id": "pyat",
+        "class": "dva"
+    })
 
     const deleteButton = document.createElement('button'); // создаем кнопку "Удалить"
     deleteButton.innerText = 'Удалить';
-    setAttributes(deleteButton, {"class": "delete-button"});
-    deleteButton.addEventListener('click', function(event){ // удаление элемента при нажатии на кнопку
+    setAttributes(deleteButton, {
+        "class": "delete-button"
+    });
+    deleteButton.addEventListener('click', function (event) { // удаление элемента при нажатии на кнопку
         listItem.parentElement.removeChild(listItem);
         event.preventDefault();
     })
@@ -144,30 +151,50 @@ function createPartListItem(title) {
 // создаем вложенный список с вариантами запчастей
 function createPartListOptionUl() {
     let listOption = document.createElement('ul');
-    setAttributes(listOption, {"class": "list-option"});
+    setAttributes(listOption, {
+        "class": "list-option"
+    });
+
     let listOptionItem = createPartListOptionLi();
     listOption.appendChild(listOptionItem);
     return listOption;
 }
+
 function createPartListOptionLi() {
     // let listOption = document.createElement('ul');
     // setAttributes(listOption, {"class": "list-option"});
 
     let listOptionItem = document.createElement('li');
-    setAttributes(listOptionItem, {"class": "li-list-option"});
+    setAttributes(listOptionItem, {
+        "class": "li-list-option"
+    });
 
     let inputManufacturer = document.createElement('input');
-    setAttributes(inputManufacturer, { "type": "text", "placeholder": "Производитель", "name": "manufacturer"});
+    setAttributes(inputManufacturer, {
+        "type": "text",
+        "placeholder": "Производитель",
+        "name": `manufacturer`
+    });
 
     let inputPurchasePrice = document.createElement('input');
-    setAttributes(inputPurchasePrice, { "type": "number", "placeholder": "Закупка", "name": "purchaseprice" });
+    setAttributes(inputPurchasePrice, {
+        "type": "number",
+        "placeholder": "Закупка",
+        "name": "purchaseprice"
+    });
     let inputSellingPrice = document.createElement('input');
-    setAttributes(inputSellingPrice, { "type": "number", "placeholder": "Продажа", "name": "sellingprice" });
+    setAttributes(inputSellingPrice, {
+        "type": "number",
+        "placeholder": "Продажа",
+        "name": "sellingprice"
+    });
 
     const deleteButton = document.createElement('button'); // создаем кнопку "Удалить"
     deleteButton.innerText = 'Удалить';
-    setAttributes(deleteButton, {"class": "delete-button"});
-    deleteButton.addEventListener('click', function(event){ // удаление элемента при нажатии на кнопку
+    setAttributes(deleteButton, {
+        "class": "delete-button"
+    });
+    deleteButton.addEventListener('click', function (event) { // удаление элемента при нажатии на кнопку
         listOptionItem.parentElement.removeChild(listOptionItem);
         event.preventDefault();
     })
@@ -176,31 +203,23 @@ function createPartListOptionLi() {
     listOptionItem.appendChild(inputPurchasePrice);
     listOptionItem.appendChild(inputSellingPrice);
     listOptionItem.appendChild(deleteButton);
-
     return listOptionItem;
+
 }
 // создание ссылки добавления запчасти
-function createLinkDAddVariant(){
+function createLinkDAddVariant() {
     let add = document.createElement('a');
     add.innerText = "Добавить вариант";
-    setAttributes(add, {"href": "#"});
-    add.addEventListener('click', function (event){
+    setAttributes(add, {
+        "href": "#"
+    });
+    add.addEventListener('click', function (event) {
         let listOption = createPartListOptionLi();
         add.insertAdjacentElement('beforebegin', listOption);
     })
-
     return add;
-
 }
 
-// ф-ия удалить деталь
-// function deletePart(){
-//     event.preventDefault();
-//     const todoList = document.getElementById('todo-list');
-//     let listItem = this.parentNode;
-//     console.log(listItem)
-//     //todoList.removeChild(listItem);
-// }
 
 //добавление аттрибутов  к создаваемым элементам списка запчастей
 function setAttributes(el, attrs) {

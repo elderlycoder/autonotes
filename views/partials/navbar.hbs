@@ -8,11 +8,22 @@
         </button>
       <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
+          {{#if isHome}}
           <li class="nav-item active"><a class="nav-link" href="/">Главная</a></li>
+          {{else}}
+          <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+          {{/if}}
           <li class="nav-item"><a class="nav-link" href="/orders">Заказы</a></li>
+          {{#if isAddOrder}}
+          <li class="nav-item active"><a class="nav-link" href="/addorder">Добавить заказ</a></li>
+          {{else}}
           <li class="nav-item"><a class="nav-link" href="/addorder">Добавить заказ</a></li>
+          {{/if}}
+          {{#if isAddContact}}
+          <li class="nav-item active"><a class="nav-link" href="/contacts">Контакты</a></li>
+          {{else}}
           <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
-
+          {{/if}}
           {{#if isAuth}}
           <li class="active"><a class="nav-link" href="/auth/logout">Выйти</a></li>
           {{else}}
