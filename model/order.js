@@ -14,8 +14,8 @@ const partsSchema = new Schema({
       partname: {type: String},
       selectside: { type: String},
       selectplace: {type: String},
-      CountPart: {type: Number},
-      variants: [variantsSchema]
+      CountPart: { type: Number }
+     // variants: [variantsSchema]
    }]
 })
 
@@ -23,7 +23,11 @@ const order = new Schema({
    idContact: {type: String},
    created: Date,
    desc: {type: String},
-   parts: [partsSchema]
+   parts: [partsSchema],
+   userId: {                     // ссылка на пользователя создавшего контакт
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+   }
 })
 module.exports = {
    Variants: mongoose.model('Variants', variantsSchema),

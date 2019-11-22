@@ -7,7 +7,11 @@ const schema = new Schema({
    model: {type: String},
    year: {type: Number},
    vin: {type: String},
-   descContact: {type: String}
+   descContact: { type: String },
+   userId: {                     // ссылка на пользователя создавшего контакт
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+   }
 })
 
 module.exports = mongoose.model('Contact', schema)

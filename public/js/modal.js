@@ -72,32 +72,67 @@ function getModel(event) {
     inputSelectModel.setAttribute('value', target.dataset.model);
     document.querySelector('#popup-model').classList.add('hide-popup');
 }
-// добавление названия запчасти из меню справа
-document.querySelectorAll('.select-part').forEach(function (elem) {
+(function() {document.querySelectorAll('.select-part').forEach(function (elem) {
     elem.addEventListener('click', addPart)
 });
+    // let arrayPart = document.querySelectorAll('input[name=partname]');
+    // console.log(arrayPart)
+}())
+// добавление названия запчасти из меню справа
 
+// let arrayPart = [];
+// console.log(arrayPart)
+ let count = 0; //?
 function addPart(event) {
     const partsList = document.querySelector('#parts-list'); // получаем элемент список
     let listItem = createPartListItem(event.target)
     listItem.className = 'part-item';
 
-    let listOption = createPartListOptionUl();
+    //let listOption = createPartListOptionUl();
+    let listOption = createPartListOptionUl(count); //?
+    let listHint = createHint();// создаем список с подсказками с названиями производителей
     let addVariant = createLinkDAddVariant();
-
+    listOption.appendChild(listHint)
     listOption.appendChild(addVariant);
     listItem.appendChild(listOption);
     partsList.appendChild(listItem);
+    getModalHint();
+        // создание ссылки добавления запчасти
+    function createLinkDAddVariant() {
+        
+        let add = document.createElement('a');
+        add.innerText = "Добавить вариант";
+        setAttributes(add, {
+            "href": "#",
+           // "data-num":`${count}`
+        });
+        add.addEventListener('click', function () {
+            let num = this.dataset.num;
+            let listOption = createPartListOptionLi(num);
+            let listHint = createHint();// создаем список с подсказками с названиями производителей
+            // let num = this.parentElement.dataset.num;
+            // console.log(num)
+            add.insertAdjacentElement('beforebegin', listOption);
+            add.insertAdjacentElement('beforebegin', listHint);
+            getModalHint();
+        })
+    return add;
+    }
+    count++; //?
 }
+
 // Создаем один элемент списка запчастей
 function createPartListItem(title) {
     let inputPartName = document.createElement('input');
     inputPartName.setAttribute('value', title.textContent);
     inputPartName.setAttribute('size', 35);
     inputPartName.setAttribute('name', 'partname');
+    inputPartName.setAttribute('name', ['partname' + count]); //?
+    //inputPartName.innerHTML = title.textContent;
 
     let selectSide = document.createElement('select'); // 
     selectSide.setAttribute('name', 'selectside');
+    selectSide.setAttribute('name', 'selectside' + [count]); //! 
     let array = ["Передн.", "Задн.", "Слева", "Справа", "Передн. слева", "Передн. справа", "Передн. слева и справа", "Задн. слева", "Задн. справа", "Задн. слева и справа"];
     let optionOne = document.createElement('option'); // первый option делаем отдельно без value
     optionOne.text = 'Сторона';
@@ -110,6 +145,7 @@ function createPartListItem(title) {
     }
     let selectPlace = document.createElement('select'); // 
     selectPlace.setAttribute('name', 'selectplace');
+    selectPlace.setAttribute('name', 'selectplace' + [`${count}`]); //!
     let arrayPlace = ["Сверху", "Снизу", "Внутри", "Снаружи"];
     let optionPlace = document.createElement('option');
     optionPlace.text = 'Расположение';
@@ -122,12 +158,8 @@ function createPartListItem(title) {
     }
     let inputCount = document.createElement('input');
     setAttributes(inputCount, {
-        "type": "number",
-        "name": "countpart",
-        "value": "1",
-        "id": "pyat",
-        "class": "dva"
-    })
+        "type": "number", "name": "countpart", "value": "1", "id": "pyat", "class": "dva"
+    });
 
     const deleteButton = document.createElement('button'); // создаем кнопку "Удалить"
     deleteButton.innerText = 'Удалить';
@@ -145,48 +177,60 @@ function createPartListItem(title) {
     listItem.appendChild(selectPlace);
     listItem.appendChild(inputCount);
     listItem.appendChild(deleteButton);
+    //arrayPart.push(inputPartName, selectSide);
+
     return listItem;
 }
 
+function createHint() {
+    const listHint = document.createElement('div');
+    listHint.setAttribute('class', "parent");
+    const ul = document.createElement('ul');
+    listHint.appendChild(ul)
+    return listHint
+}
+
 // создаем вложенный список с вариантами запчастей
-function createPartListOptionUl() {
+function createPartListOptionUl(i) {
     let listOption = document.createElement('ul');
     setAttributes(listOption, {
-        "class": "list-option"
+        "class": "list-option",
+       // "data-num": `${count}`
     });
-
-    let listOptionItem = createPartListOptionLi();
+    
+    let listOptionItem = createPartListOptionLi(i);
     listOption.appendChild(listOptionItem);
+    
     return listOption;
 }
 
-function createPartListOptionLi() {
-    // let listOption = document.createElement('ul');
-    // setAttributes(listOption, {"class": "list-option"});
-
+function createPartListOptionLi(i) {
+    
     let listOptionItem = document.createElement('li');
     setAttributes(listOptionItem, {
         "class": "li-list-option"
     });
-
+    // let num = this.parentElement.dataset.num;
+    // console.log(num)
     let inputManufacturer = document.createElement('input');
     setAttributes(inputManufacturer, {
         "type": "text",
         "placeholder": "Производитель",
-        "name": `manufacturer`
+        "name": "manufacturer"+[Number(i)],
+        "data-rule": `${i}`
     });
 
     let inputPurchasePrice = document.createElement('input');
     setAttributes(inputPurchasePrice, {
         "type": "number",
         "placeholder": "Закупка",
-        "name": "purchaseprice"
+        "name": `purchaseprice[${i}]`
     });
     let inputSellingPrice = document.createElement('input');
     setAttributes(inputSellingPrice, {
         "type": "number",
         "placeholder": "Продажа",
-        "name": "sellingprice"
+        "name": `sellingprice[${i}]`
     });
 
     const deleteButton = document.createElement('button'); // создаем кнопку "Удалить"
@@ -206,20 +250,6 @@ function createPartListOptionLi() {
     return listOptionItem;
 
 }
-// создание ссылки добавления запчасти
-function createLinkDAddVariant() {
-    let add = document.createElement('a');
-    add.innerText = "Добавить вариант";
-    setAttributes(add, {
-        "href": "#"
-    });
-    add.addEventListener('click', function (event) {
-        let listOption = createPartListOptionLi();
-        add.insertAdjacentElement('beforebegin', listOption);
-    })
-    return add;
-}
-
 
 //добавление аттрибутов  к создаваемым элементам списка запчастей
 function setAttributes(el, attrs) {

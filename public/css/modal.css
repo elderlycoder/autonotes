@@ -2,7 +2,7 @@
    overflow: auto;
 } */
 .popup {
-    /*position: fixed;*/
+   /*position: fixed;*/
    /*z-index: 1;*/
    width: 100%;
    height: 100%;
@@ -13,12 +13,14 @@
    align-content: stretch;
    align-items: center;
    clear: both;
-  
+
 }
+
 .hide-popup {
    display: none;
 }
-.close{
+
+.close {
    float: right;
    color: black;
    font-size: 28px;
@@ -27,6 +29,7 @@
    display: flex;
    justify-content: flex-end;
 }
+
 .popup-content {
    position: relative;
    width: 95%;
@@ -38,23 +41,26 @@
    /*flex: 0 1 auto;*/
    align-self: auto;
 }
+
 .row-modal {
    display: flex;
    justify-content: space-around;
    flex-direction: row;
 }
-.row-list{
+
+.row-list {
    overflow: auto;
 }
 
 .modal-h3 {
-   
+
    display: flex;
    justify-content: flex-start;
 }
-.popup-header{ 
+
+.popup-header {
    background-color: #f2f2f2;
-   display:flex;
+   display: flex;
    justify-content: space-between;
 }
 
@@ -65,17 +71,21 @@
    margin: 10px;
    width: 15%;
 }
-.active{
+
+.active {
    font-weight: bold;
 }
-.tab-modal{
+
+.tab-modal {
    cursor: pointer;
    border: 1px solid #666;
    padding: 5px;
 }
-.div-wrap{
+
+.div-wrap {
    display: inline-block;
 }
+
 .modal-wrap {
    position: fixed;
    left: 0;
@@ -101,51 +111,62 @@
    /*flex: 0 1 auto;*/
    align-self: auto;
 }
+
 .hide {
    display: none;
 }
+
 .menu-parts {
    position: absolute;
    right: 10;
-   width: 100%;  
+   width: 100%;
 }
 
-.items-search >li:hover {
+.items-search>li:hover {
    cursor: pointer;
-   font-weight:bold;
-   color: #5d56d5;   
- }
- .row-modal-model li:hover {
+   font-weight: bold;
+   color: #5d56d5;
+}
+
+.row-modal-model li:hover {
    cursor: pointer;
-   font-weight:bold;
-   
- }
- .row-part li:hover {
+   font-weight: bold;
+
+}
+
+.row-part li:hover {
    cursor: pointer;
    color: #5d56d5
- }
+}
+
 /* меню с деталями*/
-.pmenuu ul{
+.pmenuu ul {
    list-style: none;
 }
-ul .pmenuu{
+
+ul .pmenuu {
    list-style: none;
 }
-.pmenuu li{
+
+.pmenuu li {
    margin: 8px;
    list-style: none;
 }
-.pmenuu a{
+
+.pmenuu a {
    color: green;
    padding: 5px;
 }
-.pmenuu a:hover{
-   padding: 1px 2px 1px 0 ;
+
+.pmenuu a:hover {
+   padding: 1px 2px 1px 0;
 }
-.select-grup{
+
+.select-grup {
    position: relative;
 }
-.ssubmenuu {
+
+.psubmenuu {
    position: absolute;
    background-color: white;
    width: 100%;
@@ -153,24 +174,28 @@ ul .pmenuu{
    top: -9999em;
    opacity: 0;
 }
-.select-grup:hover .ssubmenuu{
-   opacity:1;
+
+.select-grup:hover .psubmenuu {
+   opacity: 1;
    top: 0;
 }
- ul.mmenuu {
+
+ul.mmenuu {
    text-align: left;
    margin: 3px;
- }
- ul.mmenuu > li {
+}
+
+ul.mmenuu>li {
    /* Задаю выравнивание и позиционирование. */
    float: left;
    /* Считаем координаты относительно исходного места*/
    position: relative;
- }
- /*ul.pmenuu > li {
+}
+
+/*ul.pmenuu > li {
    position: relative;
  }*/
- ul.mmenuu > li {
+ul.mmenuu>li {
    /* Делаю элементы блочными: */
    display: block;
    color: #000;
@@ -180,7 +205,8 @@ ul .pmenuu{
    text-decoration: none;
    /* Задаю цвет.
    background-color: #da570f;*/
- }
+}
+
 /* ul.pmenuu > li {
    display: block;
    color: #000;
@@ -188,61 +214,101 @@ ul .pmenuu{
    text-decoration: none;
   background-color: #da570f;
  }*/
- ul.mmenuu > li:hover {
+ul.mmenuu>li:hover {
    /* Задаю цвет при наведении. */
    background-color: #fff;
    color: #5d56d5;
- }
- /*ul.pmenuu > li:hover {
+}
+
+/*ul.pmenuu > li:hover {
   background-color: #fff;
    color: #5d56d5;
  }*/
- /*ul.ssubmenuu {
+ul.ssubmenuu {
+
    width: auto;
    top: 1.5rem;
    display: none;
    background-color: white;
- }*/
- /*ul.ssubmenuu > li {
-   display: block;
- }*/
- /*ul.ssubmenuu > li {
-   display: block;
+   margin-top: 10px;
+   right: 10%;
+}
+
+ul.ssubmenuu>li {
+   list-style: none;
+   display: inline;
    text-decoration: none;
-   padding: 5px;
+   right: 20%;
+   padding: 8px;
    color: #000;
    background-color: #fff;
- }*/
+}
+
 /* ul.ssubmenuu > li:hover {
    text-decoration: underline;
  }*/
- ul.mmenuu > li:hover > ul.ssubmenuu {
+ul.mmenuu>li:hover>ul.ssubmenuu {
    display: block;
- }
- /*ul.pmenuu > li:hover > ul.ssubmenuu {
+}
+
+/*ul.pmenuu > li:hover > ul.ssubmenuu {
    display: block;
  }*/
 
- /*делаем стрелочки у input number*/
- #pyat::-webkit-inner-spin-button { 
+/*делаем стрелочки у input number*/
+#pyat::-webkit-inner-spin-button {
    opacity: 1;
-   
- }
- /*устанавливаем длину <input type=number>*/
- .dva {
+
+}
+
+/*устанавливаем длину <input type=number>*/
+.dva {
    width: 4em;
- }
- .tb-style {
-   border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
-   border: 1px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/ 
+}
+
+.tb-style {
+   border-collapse: collapse;
+   /*убираем пустые промежутки между ячейками*/
+   border: 1px solid grey;
+   /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
    width: 95%;
    margin: auto;
 }
- .tb-style td, .tb-style th {border: 1px solid grey;}
- /*.tb-style > th, td {border: 1px solid grey;}*/
 
- .contact-result {
-    margin: 1rem;
-    font-weight: bold;
- }
- 
+.tb-style td,
+.tb-style th {
+   border: 1px solid grey;
+}
+
+/*.tb-style > th, td {border: 1px solid grey;}*/
+
+.contact-result {
+   margin: 1rem;
+   font-weight: bold;
+}
+
+/* Стили списка автодополнения появляющегося при заполнении inputa */
+.parent {
+   position: relative;
+   background-color: #fff;
+}
+.parent ul {
+   
+   margin-top: 6px;
+   margin-bottom: 6px;
+   padding: 0;
+   list-style-type: none;
+   
+   
+}
+.parent li{
+   border: 1px solid gray;
+   padding: 3px 7px;
+   display: inline;
+}
+.parent li:hover{
+   border: 1px solid black;
+   cursor: pointer;
+   font-weight: bold;
+   color: blue;
+}

@@ -1,9 +1,9 @@
 const {Router} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
 const {Variants, Parts, Order} = require('../model/order');
 const Contact = require('../model/contacts'); //
-
+//const {parse} = require('json-parser')
 const router = Router();
-const express = require("express");
+//const express = require("express");
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({
   extended: false
@@ -32,20 +32,25 @@ router.post('/', urlencodedParser, async (req, res) => {
     countPart = req.body.countpart,
     manufacturer = req.body.manufacturer,
     purchaseprice = req.body.purchaseprice,
-    sellingprice = req.body.sellingprice;
-    console.log(req.body)
-  let variants = [];
-    for (let i = 0; i < manufacturer.length; i++) {
-      let variant = {};
-      variant.manufacturer = manufacturer[i];
-      variant.purchaseprice = purchaseprice[i];
-      variant.sellingprice = sellingprice[i];
-      variants.push(variant);
-    }
-   // console.log(variants)
-    const v = new Variants({
-    varaiant: variants
-  })
+      sellingprice = req.body.sellingprice;
+      userid = req.user;
+    for(const partIndex in partname) {
+      detailname = req.body[manufacturer[`${partIndex}`]]
+      console.log (detailname)
+   }
+   console.log(req.body)
+  // let variants = [];
+  //   for (let i = 0; i < 2; i++) {
+  //     let variant = {};
+  //     variant.manufacturer = manufacturer[i];
+  //     variant.purchaseprice = purchaseprice[i];
+  //     variant.sellingprice = sellingprice[i];
+  //     variants.push(variant);
+  //   }
+  //  // console.log(variants)
+  //   const v = new Variants({
+  //   varaiant: variants
+  // })
 //console.log(v)
   let parts = [];
   for (let i = 0; i < partname.length; i++) {
@@ -58,14 +63,16 @@ router.post('/', urlencodedParser, async (req, res) => {
   }
   const p = new Parts({
     part: parts,
-    variants: v
+    //variants: v
   })
    // console.log(p)
   const order = new Order({
     idContact: id,
     created: created,
     desc: desc,
-    parts: p
+    parts: p,
+    userId: userid
+    
   })
   //console.log(order)
   try {
@@ -79,9 +86,6 @@ router.post('/', urlencodedParser, async (req, res) => {
   alert ('Добавьте запчасти!')
   }
 })
-
-
-
 
 router.post('/newcontact', urlencodedParser, async (req, res) => {
   let name = req.body.name,

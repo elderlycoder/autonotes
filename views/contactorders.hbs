@@ -1,0 +1,18 @@
+<h2>Заказы клиента</h2>
+<p>Информация о клиенте: Имя - {{contact.name}} | Телефон - {{contact.phone}} | Машина - {{contact.model}} | </p>
+
+таблица с заказами: 
+<div class="row-list">
+   <table class="tb-style">
+      <tr>
+         <th>Дата</th>
+         <th>Клиент</th>
+
+      </tr>
+      {{#each orders}}
+      <tr id="contact-tr" class="row-list">
+         <td><span class="date">{{created}}</span></td>
+      </tr>
+      {{/each}}
+   </table>
+</div>
