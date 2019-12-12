@@ -8,8 +8,7 @@ const userSchema = new Schema({
    name: {
       type: String,
       required: true
-
-   },
+},
    contactId: {
       type: Schema.Types.ObjectId,
       ref: 'Contact',

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <ol>
+      <li class="part-item">
+      <input value="деталь 1" name="partname">
+         <ul class="list-option">
+            <li class="li-list-option">
+               <input type="text" value="вариант 1" name="manufacturer">
+               <input type="text" value="вариант 2" name="manufacturer">
+               <input type="text" value="вариант 3" name="manufacturer">
+            </li>
+         </ul>
+      </li>
+      <li class="part-item">
+      <input value="деталь 2" name="partname">
+         <ul class="list-option">
+            <li class="li-list-option">
+               <input type="text" value="вариант 4" name="manufacturer">
+               <input type="text" value="вариант 5" name="manufacturer">
+               <input type="text" value="вариант 6" name="manufacturer">
+            </li>
+         </ul>
+      </li>
+      <li class="part-item">
+      <input value="деталь 3" name="partname">
+         <ul class="list-option">
+            <li class="li-list-option">
+               <input type="text" value="вариант 7" name="manufacturer">
+               <input type="text" value="вариант 8" name="manufacturer">
+               <input type="text" value="вариант 9" name="manufacturer">
+            </li>
+         </ul>
+      </li>
+   </ol>
+
+   
+  <script>
+let zakaz = {
+
+}
+const partsName = [] 
+document.querySelectorAll('input[name="partname"]').forEach(function(item){
+   partsName.push(item.value)
+})
+const options = document.querySelectorAll('.li-list-option')
+let a = options[0].querySelectorAll('input[name="manufacturer"]')
+
+console.log(a)
+
+   </script> 
+</body>
+</html>

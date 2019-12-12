@@ -1,9 +1,11 @@
-const {Router} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
-const {Variants, Parts, Order} = require('../model/order');
+const express = require("express");
+const {
+  Router
+} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
+const Order = require('../model/order');
 const Contact = require('../model/contacts'); //
-//const {parse} = require('json-parser')
+const jsonParser = express.json()
 const router = Router();
-//const express = require("express");
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({
   extended: false
@@ -21,69 +23,40 @@ router.get('/', async (req, res) => {
   });
 });
 
-router.post('/', urlencodedParser, async (req, res) => {
-  if(req.body){
-  let id = req.body.id,
-    created = req.body.start,
-    desc = req.body.desc,
-    partname = req.body.partname,
-    selectside = req.body.selectside,
-    selectplace = req.body.selectplace,
-    countPart = req.body.countpart,
-    manufacturer = req.body.manufacturer,
-    purchaseprice = req.body.purchaseprice,
-      sellingprice = req.body.sellingprice;
-      userid = req.user;
-    for(const partIndex in partname) {
-      detailname = req.body[manufacturer[`${partIndex}`]]
-      console.log (detailname)
-   }
-   console.log(req.body)
-  // let variants = [];
-  //   for (let i = 0; i < 2; i++) {
-  //     let variant = {};
-  //     variant.manufacturer = manufacturer[i];
-  //     variant.purchaseprice = purchaseprice[i];
-  //     variant.sellingprice = sellingprice[i];
-  //     variants.push(variant);
-  //   }
-  //  // console.log(variants)
-  //   const v = new Variants({
-  //   varaiant: variants
-  // })
-//console.log(v)
-  let parts = [];
-  for (let i = 0; i < partname.length; i++) {
-    let part = {};
-    part.partname = partname[i];
-    part.selectside = selectside[i];
-    part.selectplace = selectplace[i];
-    part.CountPart = countPart[i];
-    parts.push(part)
-  }
-  const p = new Parts({
-    part: parts,
-    //variants: v
-  })
-   // console.log(p)
-  const order = new Order({
-    idContact: id,
-    created: created,
-    desc: desc,
-    parts: p,
-    userId: userid
-    
-  })
-  //console.log(order)
-  try {
-    await order.save();
-    res.redirect('/')
-  } catch (e) {
-    console.log(e)
-  }
-  
-} else {
-  alert ('Добавьте запчасти!')
+
+router.post('/', jsonParser, async (req, res) => {
+  if (req.body) {
+    let id = req.body.orderContactId,
+      date = req.body.orderDate,
+      desc = req.body.orderDesc,
+      partnames = req.body.partnames;
+
+    let variants = []
+    for (let i = 0; i < partnames.length; i++) {
+      let p = partnames[i].variant.length
+      for (let k = 0; k < p; k++) {
+        variants.push(partnames[i].variant[k])
+      }
+    }
+
+    const order = new Order({
+      idContact: id,
+      created: date,
+      desc: desc,
+      parts: partnames
+    })
+    try {
+
+      //console.log(order.parts.variant)
+      await order.save();
+      //await variant.save()
+      res.redirect('/contacts')
+    } catch (e) {
+      console.log(e)
+    }
+
+  } else {
+    alert('Добавьте запчасти!')
   }
 })
 

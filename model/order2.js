@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const order = new Schema({
    idContact: {type: String},
    created: Date,
@@ -11,7 +10,6 @@ const order = new Schema({
       selectside: { type: String},
       selectplace: {type: String},
       CountPart: { type: Number },
-      //variant: [variantsSchema]
       variant: [{
          manufacturer: { type: String },
          provider: { type: String },
@@ -24,5 +22,5 @@ const order = new Schema({
       ref: 'User'
    }
 })
- 
+
 module.exports = mongoose.model('Order', order)

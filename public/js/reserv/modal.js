@@ -30,6 +30,8 @@ document.querySelectorAll('.items-search').forEach(function (elem) {
     elem.addEventListener('click', getContact)
 });
 
+
+
 function getContact(event) {
     let target = event.target; // получаем элемент на котором произошло событие
     const parent = target.parentElement,
@@ -70,12 +72,12 @@ function getModel(event) {
     inputSelectModel.setAttribute('value', target.dataset.model);
     document.querySelector('#popup-model').classList.add('hide-popup');
 }
-
-document.querySelectorAll('.select-part').forEach(function (elem) {
+(function() {document.querySelectorAll('.select-part').forEach(function (elem) {
     elem.addEventListener('click', addPart)
 });
     // let arrayPart = document.querySelectorAll('input[name=partname]');
     // console.log(arrayPart)
+}())
 // добавление названия запчасти из меню справа
 
 // let arrayPart = [];
@@ -97,6 +99,7 @@ function addPart(event) {
     getModalHint();
         // создание ссылки добавления запчасти
     function createLinkDAddVariant() {
+        
         let add = document.createElement('a');
         add.innerText = "Добавить вариант";
         setAttributes(add, {
@@ -213,7 +216,7 @@ function createPartListOptionLi(i) {
     setAttributes(inputManufacturer, {
         "type": "text",
         "placeholder": "Производитель",
-        "name": "manufacturer",
+        "name": "manufacturer"+[Number(i)],
         "data-rule": `${i}`
     });
 
