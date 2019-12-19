@@ -14,11 +14,11 @@ const User = require('./model/user')
 app.engine('hbs', hbs.engine); // регистрируем движок handlebars в express
 app.set('view engine', 'hbs'); // указываем hbs в качестве шаблонизатора
 app.set('views', 'views'); // явно указываем папку для Layouts
-
+// пишем собственный midlleware, хотим чтобы у объекта req всегда присутствовал пользователь находящийся в системе
 app.use(async (req, res, next) => {
    try {
-      const user = await User.findById('5dc1f466a676b10a34ae3938');
-      req.user = user;
+      const user = await User.findById('5dc1f466a676b10a34ae3938'); // получаем пользователя из БД
+      req.user = user; // добавляем пользователя в объект req
       next();
    } catch (e) {
       console.log(e);

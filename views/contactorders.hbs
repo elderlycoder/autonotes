@@ -1,19 +1,38 @@
 <h2>Заказы клиента</h2>
 <p>Информация о клиенте: Имя - {{contact.name}} | Телефон - {{contact.phone}} | Машина - {{contact.model}} | </p>
-
-таблица с заказами: 
+<p>таблица с заказами:</p>
 <div class="row-list">
    <table class="tb-style">
       <tr>
          <th>Дата</th>
-         <th>Клиент</th>
+         <th>Деталь</th>
+         <th>Статус</th>
+         <th>Состояние</th>
 
       </tr>
       {{#each orders}}
+
       <tr id="contact-tr" class="row-list">
          <td><span class="date">{{created}}</span></td>
-         <td><span class="parts">{{parts}}</span></td>
-      </tr>
+         <td><span>{{status}}</span></td>
+          <td><span>{{state}}</span></td>
+
+
+         <td>
+            {{# each parts}}
+            <div class="parts">{{partname}} {{selectside}} {{selectplace}} {{CountPart}}
+               <span>
+                  <ol>
+                     {{# each variant}}
+                     <li>{{number}} {{manufacturer}}</li>
+                     {{/each}}
+                  </ol>
+               </span>
+            </div>
+            {{/each}}
+         </td>
+         </tr>
+
       {{/each}}
    </table>
 </div>

@@ -1,7 +1,5 @@
 const express = require("express");
-const {
-  Router
-} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
+const {Router} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
 const Order = require('../model/order');
 const Contact = require('../model/contacts'); //
 const jsonParser = express.json()
@@ -29,8 +27,11 @@ router.post('/', jsonParser, async (req, res) => {
     let id = req.body.orderContactId,
       date = req.body.orderDate,
       desc = req.body.orderDesc,
+      countpart = req.body.countpart,
+      status = req.body.orderStatus,
+      state = req.body.orderState,
       partnames = req.body.partnames;
-
+console.log(req.body)
     let variants = []
     for (let i = 0; i < partnames.length; i++) {
       let p = partnames[i].variant.length
@@ -43,7 +44,11 @@ router.post('/', jsonParser, async (req, res) => {
       idContact: id,
       created: date,
       desc: desc,
-      parts: partnames
+      status: status,
+      state: state,
+      CountPart: countpart,
+      parts: partnames,
+      userId: req.user
     })
     try {
 
@@ -73,7 +78,8 @@ router.post('/newcontact', urlencodedParser, async (req, res) => {
     model: model,
     year: year,
     vin: vin,
-    descContact: descContact
+    descContact: descContact,
+    userId: req.user
   })
 
   const isNewContact = true;
