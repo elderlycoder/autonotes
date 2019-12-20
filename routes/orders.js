@@ -3,10 +3,13 @@ const Order = require('../model/order')
 const router = Router();
 
 
-router.get('/', (req, res) => {
-   res.render("orders",{
-      isOrders: true,
-      title: 'Страница с заказами'
+router.get('/', async (req, res) => {
+   isOrders = true
+   const orders = await Order.find({ userId: req.user })
+   res.render("orders", {
+      title: 'Страница с заказами',
+      orders,
+      isOrders
    }); 
 });
 

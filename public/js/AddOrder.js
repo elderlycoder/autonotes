@@ -39,6 +39,7 @@ function addOption(event) {
    })
    getModalHint();
    Summ();
+   //Check();
 }
 
 
@@ -57,6 +58,7 @@ const partTemplate = `
 `
 const optionTemplate = `
 <li class="li-list-option">
+<input type="checkbox" name="check">
 <input type="text" placeholder="Номер" name="number" size="15">
 <input type="text" placeholder="Производитель" name="manufacturer" size="15">
 <input type="text" placeholder="Поставщик" name="provider" size="15">
