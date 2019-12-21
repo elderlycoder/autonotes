@@ -13,7 +13,11 @@
           {{else}}
           <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
           {{/if}}
+          {{#if isOrders}}
+          <li class="nav-item active"><a class="nav-link" href="/orders">Заказы</a></li>
+          {{else}}
           <li class="nav-item"><a class="nav-link" href="/orders">Заказы</a></li>
+           {{/if}}
           {{#if isAddOrder}}
           <li class="nav-item active"><a class="nav-link" href="/addorder">Добавить заказ</a></li>
           {{else}}
@@ -23,6 +27,11 @@
           <li class="nav-item active"><a class="nav-link" href="/contacts">Контакты</a></li>
           {{else}}
           <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+          {{/if}}
+          {{#if isStore}}
+          <li class="nav-item active"><a class="nav-link" href="/store">Склад</a></li>
+          {{else}}
+          <li class="nav-item"><a class="nav-link" href="/store">Склад</a></li>
           {{/if}}
           {{#if isAuth}}
           <li class="active"><a class="nav-link" href="/auth/logout">Выйти</a></li>
