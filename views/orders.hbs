@@ -1,1 +1,16 @@
-<h1>Страница со списком заказов</h1>
+<h1>Список заказов пользователя системы</h1>
+<div>
+<table class="table table-hover table-sm">
+        <tr>
+             <th>Дата</th>
+         <th>Клиент</th>
+            
+        </tr>
+      {{#each orders}}
+      <tr id="contact-tr" class="row-list">
+         <td><span class="date">{{created}}</span></td>
+         <td><span class="parts">{{parts}}</span></td>
+      </tr>
+      {{/each}}
+    </table>
+    </div>

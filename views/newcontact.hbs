@@ -16,7 +16,7 @@
             </div>
          {{/if}}
          <!-- форма для отправки ин-ии о заказе-->
-         <form action="/addorder" method="POST">
+         <form action="/addorder" method="POST" class="form-addorder" id="myForm">
             <div class="contact-data hide">
                <input type="text" name="id">
             </div>
@@ -25,35 +25,20 @@
             Примечание: <input type="text" name="desc">
             <hr>
             <!--заготовка под список добавляемых запчастей-->
-            <ol id="parts-list"></ol>
+            <ol id="parts-list" data-partsplace></ol>
             
 
-            <button type="submit" name="button">Сохранить</button>
+            <button type="button" name="button">Сохранить</button>
          </form>
       </div>
       <div class="col-lg-3">
          <div id="popup-part" class="menu-parts">
+            
             <div>
                <h4> Меню с деталями</h4>
             </div>
-            <div class="row-part">
-               <ul class="pmenuu">
-                  <li class="select-part">Новая запчасть</li>
-                  <li class="select-model" id="audi" data-model="Audi">Подвеска
-                     <ul class="ssubmenuu">
-                        <li class="select-part">Амортизатор</li>
-                        <li class="select-part">Амортизаторы передние комплпект</li>
-                        <li class="select-part">Балка задняя</li>
-                        <li class="select-part">Болт развала задних колёс</li>
-                        <li class="select-part">Втулка стабилизатора</li>
-                        <li class="select-part">Пружина</li>
-                        <li class="select-part">Рычаг</li>
-                        <li class="select-part">Стойка стабилизатора</li>
-                        
-                     </ul>
-                  </li>
-               </ul>
-            </div>
+            {{> menuparts}}
+            
          </div>
       </div>
    </div>

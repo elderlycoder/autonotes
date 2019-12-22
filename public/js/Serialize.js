@@ -7,6 +7,9 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    jsonObject.orderContactId = addorderForm.elements["id"].value;
    jsonObject.orderDate = addorderForm.elements["start"].value;
    jsonObject.orderDesc = addorderForm.elements["desc"].value;
+   jsonObject.orderStatus = addorderForm.elements["status"].value;
+   jsonObject.orderState = addorderForm.elements["state"].value;
+
 
    let partsplace = addorderForm.querySelectorAll('.part-item')
    partsname = addorderForm.querySelectorAll('input[name="partname"]'),
@@ -18,11 +21,19 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    for (let i = 0; i < partsplace.length; i++) {
       let objPart = {}
       objPart.partname = partsname[i].value
-      objPart.selectside = selectside[i].value
-      objPart.selectplace = selectplace[i].value
+      if (selectside[i].value != 'Сторона') {
+         objPart.selectside = selectside[i].value
+      } else {
+         objPart.selectside = '  ';
+      }
+      if (selectplace[i].value != 'Расположение') {
+         objPart.selectplace = selectplace[i].value
+      }
+      
       objPart.countpart = countpart[i].value
 
       let partOptions = partsplace[i].querySelectorAll('.li-list-option')
+      number = partsplace[i].querySelectorAll('input[name="number"]')
       manufacturer = partsplace[i].querySelectorAll('input[name="manufacturer"]')
       provider = partsplace[i].querySelectorAll('input[name="provider"]')
       purchaseprice = partsplace[i].querySelectorAll('input[name="purchaseprice"]')
@@ -31,6 +42,7 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
       arrayOptions = []
       for (let j = 0; j < partOptions.length; j++) {
          let objOption = {}
+         objOption.number = number[j].value
          objOption.manufacturer = manufacturer[j].value
          objOption.provider = provider[j].value
          objOption.purchaseprice = purchaseprice[j].value

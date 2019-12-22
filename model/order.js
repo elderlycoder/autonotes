@@ -6,13 +6,15 @@ const order = new Schema({
    idContact: { type: String },
    created: Date,
    desc: { type: String },
+   status: { type: String },
+   state: { type: String },
    parts: [{
       partname: { type: String },
       selectside: { type: String },
       selectplace: { type: String },
       CountPart: { type: Number },
-      //variant: [variantsSchema]
       variant: [{
+         number: { type: String },
          manufacturer: { type: String },
          provider: { type: String },
          purchaseprice: { type: String },

@@ -20,10 +20,30 @@
             <div class="contact-data hide">
                <input type="text" name="id">
             </div>
-            Дата: <input type="date" id="start" name="start"><br>
-
-            Примечание: <input type="text" name="desc">
+            <div>Дата: <input type="date" id="start" name="start">
+               Примечание: <input type="text" name="desc">
+            </div>
             <hr>
+            <div>
+               <select name="status">
+                  <option value="Черновик">Черновик</option>
+                  <option value="В работе">В работе</option>
+                  <option value="Архив">Архив</option>
+               </select>
+
+               <select name="state">
+                  <option value="получена заявка">получена заявка</option>
+                  <option value="подготовка вариантов">подготовить варианты</option>
+                  <option value="связаться для согласования">связаться для согласования</option>
+                  <option value="отправить черновик">отправить черновик</option>
+                  <option value="не отвечает, связаться ещё раз">не отвечает, связаться ещё раз</option>
+                  <option value="принимает решение">принимает решение</option>
+                  <option value="окончательное согласование">окончательное согласование</option>
+                  <option value="успешный заказ">успешный заказ</option>
+                  <option value="отказ">отказ</option>
+               </select>
+
+            </div>
             <!--заготовка под список добавляемых запчастей-->
 
             <ol id="parts-list" data-partsplace></ol>
@@ -31,162 +51,16 @@
 
             <button type="button" name="button">Сохранить</button>
          </form>
+         <div><button type="button" name="btn-summa">Сумма отмеченных</button><input type="number" class="summabuy"
+               placeholder="сумма закупки"> <input type="text" class="summasell" placeholder="сумма продажи"></div>
       </div>
+
       <div class="col-lg-3">
          <div id="popup-part" class="menu-parts">
             <div>
                <h4> Меню с деталями</h4>
             </div>
-            <div class="row-part">
-               <ul class="pmenuu">
-                  <li class="select-part">Новая запчасть</li>
-                  <li class="select-grup">Подвеска
-                     <ul class="psubmenuu">
-                        <li class="select-part"><a href="#">Амортизатор</a></li>
-                        <li class="select-part"><a href="#">Амортизаторы передние комплпект</a></li>
-                        <li class="select-part"><a href="#">Балка задняя</a></li>
-                        <li class="select-part"><a href="#">Болт развала задних колёс</a></li>
-                        <li class="select-part"><a href="#">Втулка стабилизатора</a></li>
-                        <li class="select-part"><a href="#">Пружина</a></li>
-                        <li class="select-part"><a href="#">Рычаг</a></li>
-                        <li class="select-part"><a href="#">Стойка стабилизатора</a></li>
-                     </ul>
-                  </li>
-                  <li class="select-grup">Рулевое управление
-                     <ul class="psubmenuu">
-                        <li class="select-part"><a href="#">Бачок гидроусилителя</a></li>
-                        <li class="select-part"><a href="#">Вал рулевого механизма</a></li>
-                        <li class="select-part"><a href="#">Кардан рулевой</a></li>
-                        <li class="select-part"><a href="#">Крестовина рулевого кардана</a></li>
-                        <li class="select-part"><a href="#">Крышка бачка г/у</a></li>
-                        <li class="select-part"><a href="#">Масло в ГУР</a></li>
-                        <li class="select-part"><a href="#">Наконечник рулевой</a></li>
-                        <li class="select-part"><a href="#">Насос гидроусилителя</a></li>
-                        <li class="select-part"><a href="#">Пыльник рулевой рейки</a></li>
-                        <li class="select-part"><a href="#">Ремкомплект насоса ГУР</a></li>
-                        <li class="select-part"><a href="#">Ремкомплект рулевой рейки</a></li>
-                        <li class="select-part"><a href="#">Радиатор гидроусилителя</a></li>
-                        <li class="select-part"><a href="#">Рейка рулевая</a></li>
-                        <li class="select-part"><a href="#">С/блок рулевой рейки</a></li>
-                        <li class="select-part"><a href="#">Трубка гидроусилителя</a></li>
-                        <li class="select-part"><a href="#">Тяга рулевая</a></li>
-                        <li class="select-part"><a href="#">Шланг гидроусилителя</a></li>
-                     </ul>
-                  </li>
-                  <li class="select-grup">Тормозная система
-                     <ul class="psubmenuu">
-                        <li class="select-part"><a href="#">Барабан тормозной</a></li>
-                        <li class="select-part"><a href="#">Бачок тормозного цилиндра</a></li>
-                        <li class="select-part"><a href="#">Датчик износа колодок</a></li>
-                        <li class="select-part"><a href="#">Диск тормозной</a></li>
-                        <li class="select-part"><a href="#">Диски тормозные к-кт</a></li>
-                        <li class="select-part"><a href="#">Комплект установочный задних колодок</a></li>
-                        <li class="select-part"><a href="#">Колодки (барабанные)</a></li>
-                        <li class="select-part"><a href="#">Колодки (дисковые)</a></li>
-                        <li class="select-part"><a href="#">Колодки ручного тормоза</a></li>
-                        <li class="select-part"><a href="#">Крышка бачка тормозной жидкости</a></li>
-                        <li class="select-part"><a href="#">Направляющая суппорта</a></li>
-                        <li class="select-part"><a href="#">Направляющие суппорта к-кт<</a>/li>
-                        <li class="select-part"><a href="#">Планка регулировочная</a></li>
-                        <li class="select-part"><a href="#">Поршень суппорта</a></li>
-                        <li class="select-part"><a href="#">Пыльник направляющей суппорта</a></li>
-                        <li class="select-part"><a href="#">Пыльник суппорта</a></li>
-                        <li class="select-part"><a href="#">Р/к суппорта</a></li>
-                        <li class="select-part"><a href="#">Скоба суппорта</a></li>
-                        <li class="select-part"><a href="#">Суппорт тормозной</a></li>
-                        <li class="select-part"><a href="#">Трос стояночного тормоза</a></li>
-                        <li class="select-part"><a href="#">Трубка тормозная</a></li>
-                        <li class="select-part"><a href="#">Шланг тормозной</a></li>
-                        <li class="select-part"><a href="#">Штуцер томозной трубки</a></li>
-                     </ul>
-                  </li>
-                  <li class="select-grup">Трансмиссия
-                     <ul class="psubmenuu">
-                        <li class="select-part">Бачок главного цилиндра сцепления</li>
-                        <li class="select-part">Болт шруса</li>
-                        <li class="select-part">Вал карданный</li>
-                        <li class="select-part">Вал раздатки</li>
-                        <li class="select-part">Вал привода</li>
-                        <li class="select-part">Вал привода промежуточный</li>
-                        <li class="select-part">Вилка включения передачи</li>
-                        <li class="select-part">Вилка сцепления</li>
-                        <li class="select-part">Гайка ступицы</li>
-                        <li class="select-part">Гайка ШРУСа</li>
-                        <li class="select-part">Диск сцепления</li>
-                        <li class="select-part">Комплект сцепления</li>
-                        <li class="select-part">Корзина сцепления</li>
-                        <li class="select-part">Крестовина карданного вала</li>
-                        <li class="select-part">Крышка ступицы</li>
-                        <li class="select-part">Кулиса КПП</li>
-                        <li class="select-part">Подшипник выжимной</li>
-                        <li class="select-part">Подшипник ступицы</li>
-                        <li class="select-part">Подшипник подвесной</li>
-                        <li class="select-part">Привод в сборе</li>
-                        <li class="select-part">Пыльник ШРУСа</li>
-                        <li class="select-part">Р/к цилиндра сцепления</li>
-                        <li class="select-part">Радиатор АКПП</li>
-                        <li class="select-part">Сальник ступицы</li>
-                        <li class="select-part">Ступица</li>
-                        <li class="select-part">Трос КПП</li>
-                        <li class="select-part">Трос сцепления</li>
-                        <li class="select-part">Трос спидометра</li>
-                        <li class="select-part">Фильтр АКПП</li>
-                        <li class="select-part">Цилиндр сцепления</li>
-                        <li class="select-part">ШРУС</li>
-                        <li class="select-part">Шпилька колеса</li>
-                        <li class="select-part">Щуп масляный</li>
-                     </ul>
-                  </li>
-                  <li class="select-grup">Датчики
-                     <ul class="psubmenuu">
-                        <li class="select-part">Датчик ABS</li>
-                        <li class="select-part">Датчик абсолютного давления</li>
-                        <li class="select-part">Датчик давления в шине</li>
-                        <li class="select-part">Датчик давления масла</li>
-                        <li class="select-part">Датчик давления топлива</li>
-                        <li class="select-part">Датчик детонации</li>
-                        <li class="select-part">Датчик дождя</li>
-                        <li class="select-part">Датчик импульсов</li>
-                        <li class="select-part">Датчик кислородный / лямбда-зонд</li>
-                        <li class="select-part">Датчик положения коленвала</li>
-                        <li class="select-part">Датчик положения распредвала</li>
-                        <li class="select-part">Датчик спидометра</li>
-                        <li class="select-part">Датчик температуры</li>
-                        <li class="select-part">Датчик температуры воздуха</li>
-                        <li class="select-part">Датчик уровня в бачок омывателя</li>
-                        <li class="select-part">Датчик уровня масла</li>
-                        <li class="select-part">Датчик уровня топлива</li>
-                     </ul>
-                  </li>
-                  <li class="select-grup">Электрика
-                     <ul class="psubmenuu">
-                        <li class="select-part"><a href="#">Аккумулятор</a></li>
-                        <li class="select-part"><a href="#">Активатор замка</a></li>
-                        <li class="select-part"><a href="#">Вентилятор радиатора</a></li>
-                        <li class="select-part"><a href="#">Выключатель концевой</a></li>
-                        <li class="select-part"><a href="#">Генератор</a></li>
-                        <li class="select-part"><a href="#">Датчик вентилятора</a></li>
-                        <li class="select-part"><a href="#">Датчик включения заднего хода</a></li>
-                        <li class="select-part"><a href="#">Замок зажигания</a></li>
-                        <li class="select-part"><a href="#">Катушка зажигания</a></li>
-                        <li class="select-part"><a href="#">Контактная группа замка зажигания</a></li>
-                        <li class="select-part"><a href="#">Лампа</a></li>
-                        <li class="select-part"><a href="#">Моторчик вентилятора</a></li>
-                        <li class="select-part"><a href="#">Моторчик корректора фар</a></li>
-                        <li class="select-part"><a href="#">Моторчик отопителя</a></li>
-                        <li class="select-part"><a href="#">Моторчик стеклоочистителя</a></li>
-                        <li class="select-part"><a href="#">Моторчик стеклоподъёмника</a></li>
-                        <li class="select-part"><a href="#">Насос омывателя</a></li>
-                        <li class="select-part"><a href="#">Насос омывателя фар</a></li>
-                        <li class="select-part"><a href="#">Насос топливный</a></li>
-                        <li class="select-part"><a href="#">Переключатель подрулевой</a></li>
-                        <li class="select-part"><a href="#">Плата фонаря</a></li>
-                        <li class="select-part"><a href="#">Предохранитель</a></li>
-                        <li class="select-part"><a href="#">Стартер</a></li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
+            {{> menuparts}}
          </div>
       </div>
    </div>
@@ -204,6 +78,7 @@
             <hr />
             <table id="result" class="tb-style items-search hide"></table>
             <div class="row-list">
+
                <table class="tb-style items-search">
                   <tr>
                      <th>Имя</th>
@@ -235,7 +110,8 @@
             <span class="close modal-close"> &times;</span>
          </div>
          <div class="form-modal-model">
-            <!--<div class="row-modal-model">-->
+            {{!-- <div class="row-modal-model"> --}}
+            <!--Форма добавления нового контакта-->
             <form action="/addorder/newcontact" method="post" class="form-new-contact">
                <!--<label for="model">Имя: </label>-->
                <input type="text" name="name" id="name" placeholder="Имя">
@@ -278,99 +154,108 @@
       </div>
    </div>
    <!--модальное окна выбора маки и модели -->
-   <div id="popup-model" class="popup hide-popup">
-      <div class="popup-content">
-         <div class="popup-header">
-            <h3 class="modal-h3"> Модальное окно с марками</h3>
-            <span class="close modal-close"> &times;</span>
-         </div>
-         <div class="row-modal-model">
-            <ul class="mmenuu">
-               <li class="select-model" id="audi" data-model="Audi">Audi
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="audi-80" data-model="Audi 80">80</li>
-                     <li class="select-model" id="audi-90" data-model="Audi 90">90</li>
-                     <li class="select-model" id="audi-100" data-model="Audi 100">100</li>
-                     <li class="select-model" id="audi-a3" data-model="Audi A3">A3</li>
-                     <li class="select-model" id="audi-a4" data-model="Audi A4">A4</li>
-                     <li class="select-model" id="audi-a6" data-model="Audi A5">A5</li>
-                     <li class="select-model" id="audi-q5" data-model="Audi 80">Q5</li>
-                  </ul>
-               </li>
-            </ul>
-            <ul class="mmenuu">
-               <li class="select-model" id="bmw" data-model="BMW">BMW
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="bmw-1" data-model="BMW 1">1</li>
-                     <li class="select-model" id="bmw-3" data-model="BMW 3">3</li>
-                     <li class="select-model" id="bmw-5" data-model="BMW 5">5</li>
-                     <li class="select-model" id="bmw-7" data-model="BMW 7">7</li>
-                     <li class="select-model" id="bmw-x1" data-model="BMW X1">X1</li>
-                     <li class="select-model" id="bmw-x3" data-model="BMW X3">X3</li>
-                     <li class="select-model" id="bmw-x5" data-model="BMW X5">X5</li>
-                  </ul>
-               </li>
-            </ul>
-            <ul class="mmenuu">
-               <li class="select-model" id="chevrolet" data-model="Chevrolet">Chevrolet
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="aveo" data-model="Chevrolet Aveo">Aveo</li>
-                     <li class="select-model" id="captiva" data-model="Chevrolet Captiva">Captiva</li>
-                     <li class="select-model" id="cruze" data-model="Chevrolet Cruze">Cruze</li>
-                     <li class="select-model" id="lacetti" data-model="Chevrolet Lacetti">Lacetti</li>
-                     <li class="select-model" id="lanos" data-model="Chevrolet Lanos">Lanos</li>
-                     <li class="select-model" id="bmw-x3" data-model="Chevrolet Niva">Niva</li>
-                     <li class="select-model" id="bmw-x5" data-model="Chevrolet Orlando">Orlando</li>
-                     <li class="select-model" id="bmw-x5" data-model="Chevrolet Tahoe">Tahoe</li>
-                  </ul>
-               </li>
-            </ul>
-            <ul class="mmenuu">
-               <li class="select-model" id="citroen" data-model="Citroen">Citroen
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="berlingo" data-model="Citroen Berlingo">Berlingo</li>
-                     <li class="select-model" id="c-crosser" data-model="Citroen C-Crosser">C-Crosser</li>
-                     <li class="select-model" id="c3" data-model="Citroen C3">C3</li>
-                     <li class="select-model" id="c3-picasso" data-model="Citroen C3 Picasso">C3 Picasso</li>
-                     <li class="select-model" id="c4" data-model="Citroen C4">C4</li>
-                     <li class="select-model" id="c4-picasso" data-model="Citroen C4 Picasso">C4 Picasso</li>
-                     <li class="select-model" id="c5" data-model="Citroen C5">C5</li>
-                     <li class="select-model" id="c5-aircross" data-model="Citroen C5 Aircross">C5 Aircross</li>
-                  </ul>
-               </li>
-            </ul>
-            <ul class="mmenuu">
-               <li class="select-model" id="ford" data-model="Ford">Ford
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="c-max" data-model="Ford C-Max">C-Max</li>
-                     <li class="select-model" id="ecosport" data-model="Ford EcoSport">EcoSport</li>
-                     <li class="select-model" id="escape" data-model="Ford Escape">Escape</li>
-                     <li class="select-model" id="explorer" data-model="Ford Explorer">Explorer</li>
-                     <li class="select-model" id="fiesta" data-model="Ford Fiesta">Fiesta</li>
-                     <li class="select-model" id="focus" data-model="Ford Focus">Focus</li>
-                     <li class="select-model" id="fusion" data-model="Ford Fusion">Fusion</li>
-                     <li class="select-model" id="galaxy" data-model="Ford Galaxy">Galaxy</li>
-                     <li class="select-model" id="mondeo" data-model="Ford Focus">Mondeo</li>
-                     <li class="select-model" id="s-max" data-model="Ford S-Max">S-Max</li>
-                  </ul>
-               </li>
-            </ul>
-            <ul class="mmenuu">
-               <li class="select-model" id="honda" data-model="Honda">Honda
-                  <ul class="ssubmenuu">
-                     <li class="select-model" id="accord" data-model="Honda Accord">Accord</li>
-                     <li class="select-model" id="civic" data-model="Honda Civic">Civic</li>
-                     <li class="select-model" id="crv" data-model="Honda CR-V">CR-V</li>
-                     <li class="select-model" id="crosstour" data-model="Honda Crosstour">Crosstour</li>
-                     <li class="select-model" id="fit" data-model="Honda Fit">Fit</li>
-                     <li class="select-model" id="hrv" data-model="Honda HR-V">HR-V</li>
-                     <li class="select-model" id="jazz" data-model="Honda Jazz">Jazz</li>
-                     <li class="select-model" id="pilot" data-model="Honda Pilot">Pilot</li>
-                     <li class="select-model" id="stepwgn" data-model="Honda Stepwgn">Stepwgn</li>
-                  </ul>
-               </li>
-            </ul>
+   <div id="popup-model" class="popup hide-popup modal-body">
+      <div class="container-fluid">
+         <div class="popup-content">
+            <div class="popup-header">
+               <h3 class="modal-h3"> Модальное окно с марками</h3>
+               <span class="close modal-close"> &times;</span>
+            </div>
+            <div class="row-modal-model">
+               <ul class="mmenuu">
+                  <li class="select-model" id="audi" data-model="Audi">Audi
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="audi-80" data-model="Audi 80">80</li>
+                        <li class="select-model" id="audi-90" data-model="Audi 90">90</li>
+                        <li class="select-model" id="audi-100-c3" data-model="Audi 100 C3">100 (C3) 1988-1991</li>
+                        <li class="select-model" id="audi-100-c4" data-model="Audi 100 C4">100 (C4) 1990-1994</li>
+                        <li class="select-model" id="audi-a3" data-model="Audi A3">A3</li>
+                        <li class="select-model" id="audi-a4-b5" data-model="Audi A4 B5">A4 (B5) 1994-1999</li>
+                        <li class="select-model" id="audi-a4-b5r" data-model="Audi A4 B5R">A4 (B5) Рестайл 1999-2001</li>
+                        <li class="select-model" id="audi-a4-b6" data-model="Audi A4 B6">A4 (B6) 2000-2006</li>
+                        <li class="select-model" id="audi-a4-b7" data-model="Audi A4 B7">A4 (B7) 2004-2009</li>
+                        <li class="select-model" id="audi-a4-b8" data-model="Audi A4 B8">A4 (B8) 2007-2011</li>
+                        <li class="select-model" id="audi-a4-b8r" data-model="Audi A4 B8R">A4 (B8) Рестайл 2011-2015</li>
+                        <li class="select-model" id="audi-a4-b9" data-model="Audi A4 B9">A4 (B9) 2015-2019</li>
+                        <li class="select-model" id="audi-a6" data-model="Audi A5">A5</li>
+                        <li class="select-model" id="audi-q5" data-model="Audi 80">Q5</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="mmenuu">
+                  <li class="select-model" id="bmw" data-model="BMW">BMW
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="bmw-1" data-model="BMW 1">1</li>
+                        <li class="select-model" id="bmw-3" data-model="BMW 3">3</li>
+                        <li class="select-model" id="bmw-5" data-model="BMW 5">5</li>
+                        <li class="select-model" id="bmw-7" data-model="BMW 7">7</li>
+                        <li class="select-model" id="bmw-x1" data-model="BMW X1">X1</li>
+                        <li class="select-model" id="bmw-x3" data-model="BMW X3">X3</li>
+                        <li class="select-model" id="bmw-x5" data-model="BMW X5">X5</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="mmenuu">
+                  <li class="select-model" id="chevrolet" data-model="Chevrolet">Chevrolet
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="aveo" data-model="Chevrolet Aveo">Aveo</li>
+                        <li class="select-model" id="captiva" data-model="Chevrolet Captiva">Captiva</li>
+                        <li class="select-model" id="cruze" data-model="Chevrolet Cruze">Cruze</li>
+                        <li class="select-model" id="lacetti" data-model="Chevrolet Lacetti">Lacetti</li>
+                        <li class="select-model" id="lanos" data-model="Chevrolet Lanos">Lanos</li>
+                        <li class="select-model" id="bmw-x3" data-model="Chevrolet Niva">Niva</li>
+                        <li class="select-model" id="bmw-x5" data-model="Chevrolet Orlando">Orlando</li>
+                        <li class="select-model" id="bmw-x5" data-model="Chevrolet Tahoe">Tahoe</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="mmenuu">
+                  <li class="select-model" id="citroen" data-model="Citroen">Citroen
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="berlingo" data-model="Citroen Berlingo">Berlingo</li>
+                        <li class="select-model" id="c-crosser" data-model="Citroen C-Crosser">C-Crosser</li>
+                        <li class="select-model" id="c3" data-model="Citroen C3">C3</li>
+                        <li class="select-model" id="c3-picasso" data-model="Citroen C3 Picasso">C3 Picasso</li>
+                        <li class="select-model" id="c4" data-model="Citroen C4">C4</li>
+                        <li class="select-model" id="c4-picasso" data-model="Citroen C4 Picasso">C4 Picasso</li>
+                        <li class="select-model" id="c5" data-model="Citroen C5">C5</li>
+                        <li class="select-model" id="c5-aircross" data-model="Citroen C5 Aircross">C5 Aircross</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="mmenuu">
+                  <li class="select-model" id="ford" data-model="Ford">Ford
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="c-max" data-model="Ford C-Max">C-Max</li>
+                        <li class="select-model" id="ecosport" data-model="Ford EcoSport">EcoSport</li>
+                        <li class="select-model" id="escape" data-model="Ford Escape">Escape</li>
+                        <li class="select-model" id="explorer" data-model="Ford Explorer">Explorer</li>
+                        <li class="select-model" id="fiesta" data-model="Ford Fiesta">Fiesta</li>
+                        <li class="select-model" id="focus" data-model="Ford Focus">Focus</li>
+                        <li class="select-model" id="fusion" data-model="Ford Fusion">Fusion</li>
+                        <li class="select-model" id="galaxy" data-model="Ford Galaxy">Galaxy</li>
+                        <li class="select-model" id="mondeo" data-model="Ford Mondeo">Mondeo</li>
+                        <li class="select-model" id="s-max" data-model="Ford S-Max">S-Max</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="mmenuu">
+                  <li class="select-model" id="honda" data-model="Honda">Honda
+                     <ul class="ssubmenuu">
+                        <li class="select-model" id="accord" data-model="Honda Accord">Accord</li>
+                        <li class="select-model" id="civic" data-model="Honda Civic">Civic</li>
+                        <li class="select-model" id="crv" data-model="Honda CR-V">CR-V</li>
+                        <li class="select-model" id="crosstour" data-model="Honda Crosstour">Crosstour</li>
+                        <li class="select-model" id="fit" data-model="Honda Fit">Fit</li>
+                        <li class="select-model" id="hrv" data-model="Honda HR-V">HR-V</li>
+                        <li class="select-model" id="jazz" data-model="Honda Jazz">Jazz</li>
+                        <li class="select-model" id="pilot" data-model="Honda Pilot">Pilot</li>
+                        <li class="select-model" id="stepwgn" data-model="Honda Stepwgn">Stepwgn</li>
+                     </ul>
+                  </li>
+               </ul>
 
+            </div>
          </div>
       </div>
    </div>
