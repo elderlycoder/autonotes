@@ -1,6 +1,6 @@
-const {Router} = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
+const { Router } = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
 const Contact = require('../model/contacts'); //
-const {Variants, Parts, Order} = require('../model/order');
+const { Variants, Parts, Order } = require('../model/order');
 const router = Router();
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({
@@ -61,7 +61,7 @@ router.get('/:id/edit', async (req, res) => {
 });
 // заказы  конкретного клиента
 router.get('/:id/orders', async (req, res) => {
-   const isContactOrders = true;
+  const isContactOrders = true;
   // if (!req.query.allow) {
   //   return res.redirect('/contacts');
   // }

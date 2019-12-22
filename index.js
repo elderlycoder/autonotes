@@ -1,8 +1,10 @@
 const express = require('express'); // подключаем модуль express
 const mongoose = require('mongoose');
-//mongoose.Promise = global.Promise;
+const config = require("config");
+
 const app = express(); // создаем объект приложения
 const routes = require('./routes/index');
+
 const PORT = process.env.PORT || 5000;
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({
@@ -23,7 +25,7 @@ app.use(async (req, res, next) => {
    } catch (e) {
       console.log(e);
    }
-   
+
 })
 app.use(express.static('public'));
 
@@ -31,7 +33,8 @@ app.use('/', routes);
 
 async function start(){
    try{
-   const url = "mongodb://localhost:27017/test"
+      console.log(config.dbUri)
+   const url = config.dbUri;
       await mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
       const candidate = await User.findOne(); // метод findone что-то вернет если в базе есть хотябы один пользователь
       if (!candidate) { // если в переменной candidate  ничего нет то создадим нового пользователя
