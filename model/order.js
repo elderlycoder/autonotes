@@ -12,7 +12,7 @@ const order = new Schema({
       partname: { type: String },
       selectside: { type: String },
       selectplace: { type: String },
-      CountPart: { type: Number },
+      countpart: { type: Number },
       variant: [{
          number: { type: String },
          manufacturer: { type: String },
