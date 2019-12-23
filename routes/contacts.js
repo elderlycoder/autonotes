@@ -2,7 +2,6 @@ const express = require("express");
 const { Router } = require('express'); // подключаем объект Router (из express) можно так: const express.Router = require('express')
 const Contact = require('../model/contacts'); //
 const Order = require('../model/order');
-const jsonParser = express.json()
 const router = Router();
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({

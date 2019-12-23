@@ -1,0 +1,26 @@
+version: '2.4'
+services:
+    mongo:
+        command: mongod
+        image: mongo
+        environment:
+            - MONGO_HOST=${MONGO_HOST}
+            - MONGO_PORT=${MONGO_PORT}
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./db:/tmp/db
+    autonotes:
+        build:
+            context: ../autonotes
+            dockerfile: Dockerfile
+        ports:
+            - "${API_PORT}:${API_PORT}"
+        environment:
+            - API_PORT=${API_PORT}
+            - MONGO_HOST=${MONGO_HOST}
+            - MONGO_PORT=${MONGO_PORT}
+            - NODE_ENV=production
+        restart: on-failure
+        depends_on:
+            - mongo
+        #cpus: 0.05
