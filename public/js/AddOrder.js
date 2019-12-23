@@ -44,10 +44,10 @@ function addOption(event) {
 
 
 const partTemplate = `
-   <input type="text" value="%PART_NAME%" name="partname">
+   <input type="text" value="%PART_NAME%" name="partname" onkeydown="if(event.keyCode==13){return false;}">
    <select name="selectside"><option>Сторона</option><option value="Передн.">Передн.</option><option value="Задн.">Задн.</option><option value="Слева">Слева</option><option value="Справа">Справа</option><option value="Передн. слева">Передн. слева</option><option value="Передн. справа">Передн. справа</option><option value="Передн. слева и справа">Передн. слева и справа</option><option value="Задн. слева">Задн. слева</option><option value="Задн. справа">Задн. справа</option><option value="Задн. слева и справа">Задн. слева и справа</option></select>
    <select name="selectplace"><option>Расположение</option><option value="Сверху">Сверху</option><option value="Снизу">Снизу</option><option value="Внутри">Внутри</option><option value="Снаружи">Снаружи</option></select>
-   <input type="number" name="countpart" value="1" id="pyat" class="dva" min="1" max="900" step="1">
+   <input type="number" name="countpart" value="1" class="dva pyat" min="1" max="900" step="1">
    <button class="part-delete">Удалить</button>
    
       <ul class="list-option" >
@@ -59,9 +59,9 @@ const partTemplate = `
 const optionTemplate = `
 <li class="li-list-option">
 <input type="checkbox" name="check">
-<input type="text" placeholder="Номер" name="number" size="15">
-<input type="text" placeholder="Производитель" name="manufacturer" size="15">
-<input type="text" placeholder="Поставщик" name="provider" size="15">
+<input type="text" placeholder="Номер" name="number" size="15" onkeydown="if(event.keyCode==13){return false;}">
+<input type="text" placeholder="Производитель" name="manufacturer" size="15" onkeydown="if(event.keyCode==13){return false;}">
+<input type="text" placeholder="Поставщик" name="provider" size="15" onkeydown="if(event.keyCode==13){return false;}">
 <input type="number" placeholder="Закупка" name="purchaseprice" min="0" max="1000000" step="1">
 <input type="text"  name="buy" size="8">
 <input type="number" placeholder="Продажа" name="sellingprice" min="0" max="1000000" step="1">

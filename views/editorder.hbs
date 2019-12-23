@@ -45,7 +45,7 @@
             {{#each order.parts}}
               <div class="form-row">
                  <li class="part-item">
-                    <input type="text" value="{{partname}}" name="partname">
+                    <input type="text" value="{{partname}}" name="partname" onkeydown="if(event.keyCode==13){return false;}">
                      <select name="selectside">
                         <option value="{{selectside}}">{{selectside}}</option>
                         <option value="Передн.">Передн.</option>
@@ -66,15 +66,15 @@
                            <option value="Внутри">Внутри</option>
                            <option value="Снаружи">Снаружи</option>
                         </select>
-                        <input type="number" name="countpart" value="{{countpart}}" id="pyat" class="dva" min="1" max="900" step="1">
-                        <button class="part-delete">&times</button>
+                        <input type="number" name="countpart" value="{{countpart}}" class="dva pyat" min="1" max="900" step="1">
+                        <button type="button" class="part-delete">&times</button>
                         <ul class="list-option">
                            {{#each variant}}
                            <div class="form-row"> 
                               <li class="li-list-option">
                                  <input type="checkbox" name="check">
-                                 <input type="text" placeholder="Номер" name="number" size="15" value="{{number}}">
-                                 <input type="text" placeholder="Производитель" name="manufacturer" size="15" value="{{manufacturer}}">
+                                 <input type="text" placeholder="Номер" name="number" size="15" value="{{number}}" onkeydown="if(event.keyCode==13){return false;}">
+                                 <input type="text" placeholder="Производитель" name="manufacturer" size="15" value="{{manufacturer}}" onkeydown="if(event.keyCode==13){return false;}">
                                  <input type="text" placeholder="Поставщик" name="provider" size="15" value="{{provider}}">
                                  <input type="number" placeholder="Закупка" name="purchaseprice" value="{{purchaseprice}}" min="0" max="1000000" step="1">
                                  <input type="text"  name="buy" size="8">
