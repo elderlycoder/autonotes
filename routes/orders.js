@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       title: 'Страница с заказами',
       orders,
       isOrders
-   }); 
+   });
 });
 
 module.exports = router;

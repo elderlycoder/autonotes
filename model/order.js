@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 
 
 const order = new Schema({
-   idContact: {type: String},
+   idContact: { type: String },
    created: Date,
    desc: { type: String },
    status: { type: String },
    state: { type: String },
-   parts:  [{
-      partname: {type: String},
-      selectside: { type: String},
-      selectplace: {type: String},
+   parts: [{
+      partname: { type: String },
+      selectside: { type: String },
+      selectplace: { type: String },
       CountPart: { type: Number },
       variant: [{
          number: { type: String },
@@ -26,5 +26,5 @@ const order = new Schema({
       ref: 'User'
    }
 })
- 
+
 module.exports = mongoose.model('Order', order)
