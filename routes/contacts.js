@@ -48,7 +48,7 @@ router.post('/', urlencodedParser, async (req, res) => {
 })
 // редактирование контакта
 router.get('/:id/edit', async (req, res) => {
-  const isEditContact = true;
+  const isEditContact = true; // переменная используется для поключения скриптов
   if (!req.query.allow) {
     return res.redirect('/contacts');
   }

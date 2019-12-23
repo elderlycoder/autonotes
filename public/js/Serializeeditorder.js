@@ -4,7 +4,9 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    // получаем данные формы
    const jsonObject = {}
    const addorderForm = document.forms["myForm"];
-   jsonObject.orderContactId = addorderForm.elements["id"].value;
+   jsonObject.id = addorderForm.elements["id"].value;
+   jsonObject.orderContactId = addorderForm.elements["idcontact"]
+   .value;
    jsonObject.orderDate = addorderForm.elements["start"].value;
    jsonObject.orderDesc = addorderForm.elements["desc"].value;
    jsonObject.orderStatus = addorderForm.elements["status"].value;
@@ -21,15 +23,8 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    for (let i = 0; i < partsplace.length; i++) {
       let objPart = {}
       objPart.partname = partsname[i].value
-      //if (selectside[i].value != 'Сторона') {
-         objPart.selectside = selectside[i].value
-      //} else {
-        // objPart.selectside = '  ';
-     // }
-     // if (selectplace[i].value != 'Расположение') {
-         objPart.selectplace = selectplace[i].value
-     // }
-      
+      objPart.selectside = selectside[i].value
+      objPart.selectplace = selectplace[i].value
       objPart.countpart = countpart[i].value
 
       let partOptions = partsplace[i].querySelectorAll('.li-list-option')
@@ -53,12 +48,12 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
       objPart.variant = arrayOptions
       arrayParts.push(objPart)
    }
-   console.log(arrayParts)
    jsonObject["partnames"] = arrayParts
+   console.log(jsonObject)
    //сериализуем данные в json
    let order = JSON.stringify(jsonObject);
    
-   sendRequest("POST", "/addorder", order)
+   sendRequest("POST", "/orders/edit", order)
       .then(document.location.href = "http://localhost:5000/orders")
       .catch(err => console.log(err))
 });

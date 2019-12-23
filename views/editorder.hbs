@@ -1,31 +1,26 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-lg-9">
-         <h1>Добавление заказа</h1>
-         <div>
-            <button id="search-contact">Найти в базе</button> или добавить
-            <button id="open-popup-new-contact" data-popup="popup-model">+ Новый контакт</button>
-         </div>
+         <h1>Редактирование заказа</h1>
+         
          <!-- блок куда выводится ин-ия о клиенте-->
-         <div class="contact-result hide">
-            <p id="contact-result"></p>
+         <div class="contact-result">
+            <p id="contact-result">Клиент: {{order.idContact}}</p>
+            <p id="contact-id">Номер: {{order.id}}</p>
          </div>
-         {{#if isNewContact}}
-         <div>
-            <p>Имя: {{end.name}} Авто: {{end.model}} {{end.id}}</p>
-         </div>
-         {{/if}}
          <!-- форма для отправки ин-ии о заказе-->
-         <form action="/addorder" method="POST" class="form-addorder" id="myForm">
-            <div class="contact-data hide">
-               <input type="text" name="id">
+         <form action="/orders/edit" method="POST" class="form-addorder" id="myForm">
+            <div class="contact-data hide ">
+               <input type="text" name="idcontact" value={{order.idContact}}>
+               <input type="hidden" name="id" value="{{order.id}}">
             </div>
             <div>Дата: <input type="date" id="start" name="start">
-               Примечание: <input type="text" name="desc">
+               Примечание: <input type="text" name="desc" value="{{order.desc}}">
             </div>
             <hr>
             <div>
                <select name="status">
+                  <option value="{{order.status}}">{{order.status}}</option>
                   <option value="Черновик">Черновик</option>
                   <option value="В работе">В работе</option>
                   <option value="Архив">Архив</option>
@@ -46,7 +41,58 @@
             </div>
             <!--заготовка под список добавляемых запчастей-->
 
-            <ol id="parts-list" data-partsplace></ol>
+            <ol id="parts-list" data-partsplace>
+            {{#each order.parts}}
+              <div class="form-row">
+                 <li class="part-item">
+                    <input type="text" value="{{partname}}" name="partname">
+                     <select name="selectside">
+                        <option value="{{selectside}}">{{selectside}}</option>
+                        <option value="Передн.">Передн.</option>
+                        <option value="Задн.">Задн.</option>
+                        <option value="Слева">Слева</option>
+                        <option value="Справа">Справа</option>
+                        <option value="Передн. слева">Передн. слева</option>
+                        <option value="Передн. справа">Передн. справа</option>
+                        <option value="Передн.слева и справа">Передн.слева и справа</option>
+                        <option value="Задн. слева">Задн. слева</option>
+                        <option value="Задн. справа">Задн. справа</option>
+                        <option value="Задн. слева и справа">Задн. слева и справа</option>
+                        </select>
+                        <select name="selectplace">
+                           <option value="{{selectplace}}">{{selectplace}}</option>
+                           <option value="Сверху">Сверху</option>
+                           <option value="Снизу">Снизу</option>
+                           <option value="Внутри">Внутри</option>
+                           <option value="Снаружи">Снаружи</option>
+                        </select>
+                        <input type="number" name="countpart" value="{{countpart}}" id="pyat" class="dva" min="1" max="900" step="1">
+                        <button class="part-delete">&times</button>
+                        <ul class="list-option">
+                           {{#each variant}}
+                           <div class="form-row"> 
+                              <li class="li-list-option">
+                                 <input type="checkbox" name="check">
+                                 <input type="text" placeholder="Номер" name="number" size="15" value="{{number}}">
+                                 <input type="text" placeholder="Производитель" name="manufacturer" size="15" value="{{manufacturer}}">
+                                 <input type="text" placeholder="Поставщик" name="provider" size="15" value="{{provider}}">
+                                 <input type="number" placeholder="Закупка" name="purchaseprice" value="{{purchaseprice}}" min="0" max="1000000" step="1">
+                                 <input type="text"  name="buy" size="8">
+                                 <input type="number" placeholder="Продажа" name="sellingprice" value="{{sellingprice}}"  min="0" max="1000000" step="1">
+                                 <input type="text" name="sell" size="8">
+                                 <button type="button" class="option-delete">&times</button>
+                              </li>
+                                 <div class="parent"><ul></ul></div>
+                           </div>
+                           {{/each}}
+                           <a href="#" class="add-option" data-listoption>Добавить вариант</a>
+                        </ul>
+                        <hr>
+                 </li>
+
+              </div> 
+             {{/each}}
+            </ol>
 
 
             <button type="button" name="button">Сохранить</button>

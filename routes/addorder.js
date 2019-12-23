@@ -46,7 +46,7 @@ console.log(req.body)
       desc: desc,
       status: status,
       state: state,
-      CountPart: countpart,
+      countpart: countpart,
       parts: partnames,
       userId: req.user
     })

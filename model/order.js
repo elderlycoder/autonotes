@@ -8,11 +8,11 @@ const order = new Schema({
    desc: { type: String },
    status: { type: String },
    state: { type: String },
-   parts: [{
-      partname: { type: String },
-      selectside: { type: String },
-      selectplace: { type: String },
-      countpart: { type: Number },
+   parts:  [{
+      partname: {type: String},
+      selectside: { type: String},
+      selectplace: {type: String},
+      countpart: { type: Number},
       variant: [{
          number: { type: String },
          manufacturer: { type: String },
