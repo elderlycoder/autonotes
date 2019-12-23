@@ -4,7 +4,9 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    // получаем данные формы
    const jsonObject = {}
    const addorderForm = document.forms["myForm"];
-   jsonObject.orderContactId = addorderForm.elements["id"].value;
+   jsonObject.id = addorderForm.elements["id"].value;
+   jsonObject.orderContactId = addorderForm.elements["idcontact"]
+   .value;
    jsonObject.orderDate = addorderForm.elements["start"].value;
    jsonObject.orderDesc = addorderForm.elements["desc"].value;
    jsonObject.orderStatus = addorderForm.elements["status"].value;
@@ -54,10 +56,11 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
       arrayParts.push(objPart)
    }
    jsonObject["partnames"] = arrayParts
+   console.log(jsonObject)
    //сериализуем данные в json
    let order = JSON.stringify(jsonObject);
    
-   sendRequest("POST", "/addorder", order)
+   sendRequest("POST", "/orders/edit", order)
       .then(document.location.href = "http://localhost:5000/orders")
       .catch(err => console.log(err))
 });
