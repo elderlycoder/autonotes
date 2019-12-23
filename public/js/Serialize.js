@@ -21,14 +21,14 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    for (let i = 0; i < partsplace.length; i++) {
       let objPart = {}
       objPart.partname = partsname[i].value
-      if (selectside[i].value != 'Сторона') {
+      //if (selectside[i].value != 'Сторона') {
          objPart.selectside = selectside[i].value
-      } else {
-         objPart.selectside = '  ';
-      }
-      if (selectplace[i].value != 'Расположение') {
+      //} else {
+        // objPart.selectside = '  ';
+     // }
+     // if (selectplace[i].value != 'Расположение') {
          objPart.selectplace = selectplace[i].value
-      }
+     // }
       
       objPart.countpart = countpart[i].value
 
@@ -53,6 +53,7 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
       objPart.variant = arrayOptions
       arrayParts.push(objPart)
    }
+   console.log(arrayParts)
    jsonObject["partnames"] = arrayParts
    //сериализуем данные в json
    let order = JSON.stringify(jsonObject);

@@ -23,15 +23,8 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    for (let i = 0; i < partsplace.length; i++) {
       let objPart = {}
       objPart.partname = partsname[i].value
-      if (selectside[i].value != 'Сторона') {
-         objPart.selectside = selectside[i].value
-      } else {
-         objPart.selectside = '  ';
-      }
-      if (selectplace[i].value != 'Расположение') {
-         objPart.selectplace = selectplace[i].value
-      }
-      
+      objPart.selectside = selectside[i].value
+      objPart.selectplace = selectplace[i].value
       objPart.countpart = countpart[i].value
 
       let partOptions = partsplace[i].querySelectorAll('.li-list-option')

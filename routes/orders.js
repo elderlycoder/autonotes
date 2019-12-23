@@ -58,7 +58,7 @@ router.post('/edit', jsonParser, async (req, res) => {
       desc: desc,
       status: status,
       state: state,
-      CountPart: countpart,
+      countpart: countpart,
       parts: partnames,
       userId: req.user
     });
