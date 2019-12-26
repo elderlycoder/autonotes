@@ -79,24 +79,28 @@
             <table id="result" class="tb-style items-search hide"></table>
             <div class="row-list">
 
-               <table class="tb-style items-search">
-                  <tr>
-                     <th>Имя</th>
-                     <th>Телефон</th>
-                     <th>Автомобиль</th>
-                     <th>Год</th>
-                     <th>Примечание</th>
-                  </tr>
-                  <tr id="result" class="hide"></tr>
-                  {{#each contacts}}
-                  <tr id="contact-tr" class="row-list">
-                     <td data-id="{{id}}">{{name}}</td>
-                     <td>{{phone}}</td>
-                     <td>{{model}}</td>
-                     <td>{{year}}</td>
-                     <td>{{descContact}}</td>
-                  </tr>
-                  {{/each}}
+               <table class="table table-hover table-bordered tb-style">
+                  <thead>
+                     <tr>
+                        <th>Имя</th>
+                        <th>Телефон</th>
+                        <th>Автомобиль</th>
+                        <th>Год</th>
+                        <th>Примечание</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr id="result" class="hide"></tr>
+                     {{#each contacts}}
+                     <tr id="contact-tr" class="row-list">
+                        <td scope="row"  data-id="{{id}}">{{name}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{model}}</td>
+                        <td>{{year}}</td>
+                        <td>{{descContact}}</td>
+                     </tr>
+                     {{/each}}
+                  </tbody>
                </table>
             </div>
          </div>
@@ -180,18 +184,22 @@
                         <li class="select-model" id="audi-a3" data-model="Audi A3">A3 II (8З) Рестайл 2 2008-2013 </li>
                         <li class="select-model" id="audi-a3" data-model="Audi A3">A3 III (8V) 2012-2016 </li>
                         <li class="select-model" id="audi-a4-b5" data-model="Audi A4 B5">A4 (B5) 1994-1999</li>
-                        <li class="select-model" id="audi-a4-b5r" data-model="Audi A4 1999-2001">A4 (B5) Рестайл 1999-2001</li>
+                        <li class="select-model" id="audi-a4-b5r" data-model="Audi A4 1999-2001">A4 (B5) Рестайл
+                           1999-2001</li>
                         <li class="select-model" id="audi-a4-b6" data-model="Audi A4 B6">A4 (B6) 2000-2006</li>
                         <li class="select-model" id="audi-a4-b7" data-model="Audi A4 B7">A4 (B7) 2004-2009</li>
                         <li class="select-model" id="audi-a4-b8" data-model="Audi A4 B8">A4 (B8) 2007-2011</li>
-                        <li class="select-model" id="audi-a4-b8r" data-model="Audi A4 B8R">A4 (B8) Рестайл 2011-2015</li>
+                        <li class="select-model" id="audi-a4-b8r" data-model="Audi A4 B8R">A4 (B8) Рестайл 2011-2015
+                        </li>
                         <li class="select-model" id="audi-a4-b9" data-model="Audi A4 B9">A4 (B9) 2015-2019</li>
                         <li class="select-model" id="audi-a5-8t" data-model="Audi A5 8T">A5 I (8T) 2007-2011</li>
-                        <li class="select-model" id="audi-a5-8tr" data-model="Audi A5 8TR">A5 I (8T) Рестайл 2011-2016</li>
+                        <li class="select-model" id="audi-a5-8tr" data-model="Audi A5 8TR">A5 I (8T) Рестайл 2011-2016
+                        </li>
                         <li class="select-model" id="audi-a5-8f" data-model="Audi A5 8F">A5 II (8T) 2016-2019</li>
                         <li class="select-model" id="audi-a6-c4" data-model="Audi A6 C4">A6 I (C4) 1994-1997</li>
                         <li class="select-model" id="audi-a6-c5" data-model="Audi A6 C5">A6 II (C5) 1997-2001</li>
-                        <li class="select-model" id="audi-a6-c5r" data-model="Audi A6 C5R">A6 II (C5) Рестайл 2001-2004</li>
+                        <li class="select-model" id="audi-a6-c5r" data-model="Audi A6 C5R">A6 II (C5) Рестайл 2001-2004
+                        </li>
                         <li class="select-model" id="audi-a6-c4" data-model="Audi A6 C6">A6 I (C4) 1994-1997</li>
                         <li class="select-model" id="audi-q5" data-model="Audi Q5">Q5</li>
                      </ul>
