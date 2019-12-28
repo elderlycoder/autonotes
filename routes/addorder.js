@@ -24,14 +24,20 @@ router.get('/', async (req, res) => {
 
 router.post('/', jsonParser, async (req, res) => {
   if (req.body) {
-    let id = req.body.orderContactId,
+    let id = req.body.contact.ContactId,
+      name = req.body.contact.name,
+      
       date = req.body.orderDate,
       desc = req.body.orderDesc,
       countpart = req.body.countpart,
       status = req.body.orderStatus,
       state = req.body.orderState,
       partnames = req.body.partnames;
-console.log(req.body)
+    let contact = {}
+    contact.idContact = id
+    contact.name = name
+      console.log(req.body.contact.name)
+//console.log(req.body)
     let variants = []
     for (let i = 0; i < partnames.length; i++) {
       let p = partnames[i].variant.length
@@ -41,7 +47,7 @@ console.log(req.body)
     }
 
     const order = new Order({
-      idContact: id,
+      contact: contact,
       created: date,
       desc: desc,
       status: status,

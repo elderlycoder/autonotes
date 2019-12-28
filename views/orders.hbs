@@ -15,7 +15,8 @@
     <tr id="contact-tr" class="row-list">
       <td><span class="date">{{created}}</span></td>
       <td><span class="desc">{{desc}}</span></td>
-      <td><span class="id-contact">{{idContact}}</span></td>
+      <td><span class="name">{{contact.name}}</span><br />
+      <span>{{contact.idContact}}</span></td>
       <td>
         {{# each parts}}
         <div class="parts">{{partname}} {{selectside}} {{selectplace}} {{countpart}}
