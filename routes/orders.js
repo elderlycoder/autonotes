@@ -69,19 +69,28 @@ router.post('/edit', jsonParser, async (req, res) => {
 router.post('/changestatus', jsonParser, async (req, res) => {
   if (req.body) {
     let status = req.body.status
-    console.log(status)
-    console.log(req.body.id)
     try {
       await Order.findByIdAndUpdate(req.body.id, {
-      status: status,
+        status: status,
       })
     } catch (e) {
       console.log(e)
     }
-    
   }
-  
-
+})
+router.post('/changestate', jsonParser, async (req, res) => {
+  if (req.body) {
+    let state = req.body.state
+    console.log(state)
+    console.log(req.body.id)
+    try {
+      await Order.findByIdAndUpdate(req.body.id, {
+        state: state,
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
 })
 
 module.exports = router;
