@@ -2,9 +2,13 @@
 document.querySelector('button[name="button"]').addEventListener("click", function (e) {
    //e.preventDefault();
    // получаем данные формы
-   const jsonObject = {}
    const addorderForm = document.forms["myForm"];
-   jsonObject.orderContactId = addorderForm.elements["id"].value;
+   const contact = {}
+   contact.ContactId = addorderForm.elements["id"].value;
+   contact.name = addorderForm.elements["name"].value;
+   const jsonObject = {}
+   jsonObject.contact = contact;
+   //jsonObject.orderContactId = addorderForm.elements["id"].value;
    jsonObject.orderDate = addorderForm.elements["start"].value;
    jsonObject.orderDesc = addorderForm.elements["desc"].value;
    jsonObject.orderStatus = addorderForm.elements["status"].value;
@@ -55,6 +59,7 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
    }
    //console.log(arrayParts)
    jsonObject["partnames"] = arrayParts
+   console.log(jsonObject)
    //сериализуем данные в json
    let order = JSON.stringify(jsonObject);
    

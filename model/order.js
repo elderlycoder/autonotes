@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 
 const order = new Schema({
-   idContact: { type: String },
+   contact: {
+      idContact: { type: String },
+      name: { type: String}
+   },
+   
    created: Date,
    desc: { type: String },
    status: { type: String },
