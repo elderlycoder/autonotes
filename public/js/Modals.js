@@ -32,13 +32,20 @@ document.querySelectorAll('.items-search').forEach(function (elem) {
 });
 
 function getContact(event) {
-   let target = event.target; // получаем элемент на котором произошло событие
-   const parent = target.parentElement,
+   let target = event.target; // получаем элемент на котором произошло событие (ячейка таблицы)
+   let parent = target.parentElement; // получаем родительский элемент (строку таблицы)
+   let dataName = parent.querySelector('td[data-id]').textContent // получаем имя
+   let dataId = parent.querySelector('td[data-id]').dataset.id // получаем id контакта
       spanResult = document.querySelector('#contact-result');
-   spanResult.textContent = "Имя: " + parent.children[0].textContent + "   Авто: " + parent.children[2].textContent + "     Тел: " + parent.children[1].textContent;
+   // spanResult.textContent = "Имя: " + parent.children[0].textContent + "   Авто: " + parent.children[2].textContent + " //    Тел: " + parent.children[1].textContent;
+   spanResult.textContent = "Имя: " + dataName + "   Авто: " + parent.children[2].textContent + "     Тел: " + parent.children[1].textContent;
    document.querySelector('.contact-result').classList.remove('hide');
    document.querySelector('#popup-search-contact').classList.add('hide-popup');
-   document.querySelector('input[name="id"]').setAttribute('value', target.dataset.id);
+   //document.querySelector('input[name="id"]').setAttribute('value', target.dataset.id);
+   // document.querySelector('input[name="id"]').setAttribute('value', parent.children[0].dataset.id);
+   // document.querySelector('input[name="name"]').setAttribute('value', parent.children[0].textContent);
+   document.querySelector('input[name="id"]').setAttribute('value', dataId);
+   document.querySelector('input[name="name"]').setAttribute('value', dataName);
 }
 // окно добавления нового контакта
 const popupNewContact = document.querySelector('#open-popup-new-contact')
