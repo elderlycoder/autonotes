@@ -80,17 +80,16 @@
             <div class="row-list">
 
                <table class="table table-hover table-bordered tb-style items-search">
-                
-                     <tr>
+                <thead> <tr>
                         <th>Имя</th>
                         <th>Телефон</th>
                         <th>Автомобиль</th>
                         <th>Год</th>
                         <th>Примечание</th>
                      </tr>
-                  
-                  
-                     <tr id="result" class="hide"></tr>
+                     </thead>
+                    <tbody>
+                       <tr id="result" class="hide"></tr>
                      {{#each contacts}}
                      <tr id="contact-tr" class="row-list">
                         <td scope="row"  data-id="{{id}}">{{name}}</td>
@@ -100,8 +99,8 @@
                         <td>{{descContact}}</td>
                      </tr>
                      {{/each}}
-                  
-               </table>
+                    </tbody>
+                  </table>
             </div>
          </div>
       </div>
