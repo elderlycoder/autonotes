@@ -29,16 +29,25 @@
         </div>
         {{/each}}
       </td>
-       <td><span><select name="status" data-id="{{id}}">
-                  <option value="{{status}}">{{status}}</option>
-                  <option value="Черновик">Черновик</option>
-                  <option value="В работе">В работе</option>
-                  <option value="Архив">Архив</option>
-               </select></span></td>
-         <td><span><select>
-           <option value="{{state}}">{{state}}</option>
-           </select></span></td>
-         <td><span><a href="/orders/{{id}}/edit?allow=true">Изменить</a></span></td>
+      <td><span><select name="status" data-id="{{id}}">
+            <option value="{{status}}">{{status}}</option>
+            <option value="Черновик">Черновик</option>
+            <option value="В работе">В работе</option>
+            <option value="Архив">Архив</option>
+          </select></span></td>
+      <td><span><select name="state" data-id="{{id}}">
+            <option value="{{state}}">{{state}}</option>
+            <option value="получена заявка">получена заявка</option>
+            <option value="подготовить варианты">подготовить варианты</option>
+            <option value="отправить черновик">отправить черновик</option>
+            <option value="связаться для согласования">связаться для согласования</option>
+            <option value="не отвечает связаться повторно">не отвечает связаться повторно</option>
+            <option value="принимает решение">принимает решение</option>
+            <option value="окончательное согласование">окончательное согласование</option>
+            <option value="успешный заказ">успешный заказ</option>
+            <option value="отказ">отказ</option>
+          </select></span></td>
+      <td><span><a href="/orders/{{id}}/edit?allow=true">Изменить</a></span></td>
     </tr>
     {{/each}}
 
