@@ -44,7 +44,7 @@ router.post('/edit', jsonParser, async (req, res) => {
       status = req.body.orderStatus,
       state = req.body.orderState,
       partnames = req.body.partnames;
-    console.log(req.body.id)
+    //console.log(req.body.id)
     let variants = []
     for (let i = 0; i < partnames.length; i++) {
       let p = partnames[i].variant.length
@@ -64,6 +64,19 @@ router.post('/edit', jsonParser, async (req, res) => {
     });
     res.redirect('/orders');
   }
+})
+
+router.post('/changestatus', jsonParser, (req, res) => {
+  if (req.body) {
+    let status = req.body.status
+    console.log(status)
+    console.log(req.body.id)
+    Order.findByIdAndUpdate(req.body.id, {
+      status: status,
+    })
+  }
+  
+
 })
 
 module.exports = router;

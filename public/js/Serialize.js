@@ -53,7 +53,7 @@ document.querySelector('button[name="button"]').addEventListener("click", functi
       objPart.variant = arrayOptions
       arrayParts.push(objPart)
    }
-   console.log(arrayParts)
+   //console.log(arrayParts)
    jsonObject["partnames"] = arrayParts
    //сериализуем данные в json
    let order = JSON.stringify(jsonObject);

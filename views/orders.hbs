@@ -27,7 +27,12 @@
         </div>
         {{/each}}
       </td>
-       <td><span>{{status}}</span></td>
+       <td><span><select name="status" data-id="{{id}}">
+                  <option value="{{status}}">{{status}}</option>
+                  <option value="Черновик">Черновик</option>
+                  <option value="В работе">В работе</option>
+                  <option value="Архив">Архив</option>
+               </select></span></td>
          <td><span>{{state}}</span></td>
          <td><span><a href="/orders/{{id}}/edit?allow=true">Изменить</a></span></td>
     </tr>

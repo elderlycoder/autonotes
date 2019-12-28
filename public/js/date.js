@@ -10,7 +10,7 @@ const toDate = date => {
 }
 
 
-console.log(document.querySelectorAll('.date'))
+//console.log(document.querySelectorAll('.date'))
 document.querySelectorAll('.date').forEach(node => {
    node.textContent = toDate(node.textContent)
 })
