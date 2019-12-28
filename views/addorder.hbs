@@ -35,7 +35,7 @@
                   <option value="получена заявка">получена заявка</option>
                   <option value="подготовка вариантов">подготовить варианты</option>
                   <option value="отправить черновик">отправить черновик</option>
-                  <option value="связаться для согласования">связаться для согласования</option>        
+                  <option value="связаться для согласования">связаться для согласования</option>
                   <option value="не отвечает, связаться ещё раз">не отвечает, связаться ещё раз</option>
                   <option value="принимает решение">принимает решение</option>
                   <option value="окончательное согласование">окончательное согласование</option>
@@ -80,7 +80,7 @@
             <div class="row-list">
 
                <table class="table table-hover table-bordered tb-style items-search">
-                <thead>
+                  <thead>
                      <tr>
                         <th>Имя</th>
                         <th>Телефон</th>
@@ -88,20 +88,20 @@
                         <th>Год</th>
                         <th>Примечание</th>
                      </tr>
-                     </thead>
-                    <tbody>
-                       <tr id="result" class="hide"></tr>
+                  </thead>
+                  <tbody>
+                     <tr id="result" class="hide"></tr>
                      {{#each contacts}}
                      <tr id="contact-tr" class="row-list">
-                        <td scope="row"  data-id="{{id}}">{{name}}</td>
+                        <td scope="row" data-id="{{id}}">{{name}}</td>
                         <td>{{phone}}</td>
                         <td>{{model}}</td>
                         <td>{{year}}</td>
                         <td>{{descContact}}</td>
                      </tr>
                      {{/each}}
-                    </tbody>
-                  </table>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>
