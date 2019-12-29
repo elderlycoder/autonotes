@@ -39,7 +39,7 @@ function getContact(event) {
       spanResult = document.querySelector('#contact-result');
    // spanResult.textContent = "Имя: " + parent.children[0].textContent + "   Авто: " + parent.children[2].textContent + " //    Тел: " + parent.children[1].textContent;
    spanResult.textContent = "Имя: " + dataName + "   Авто: " + parent.children[2].textContent + "     Тел: " + parent.children[1].textContent;
-   document.querySelector('.contact-result').classList.remove('hide');
+   document.querySelector('.contact-result').classList.remove('hide'); // в форме получаем div куда будем выводить данные контакта
    document.querySelector('#popup-search-contact').classList.add('hide-popup');
    //document.querySelector('input[name="id"]').setAttribute('value', target.dataset.id);
    // document.querySelector('input[name="id"]').setAttribute('value', parent.children[0].dataset.id);

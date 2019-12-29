@@ -9,8 +9,6 @@ const urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
 
-
-
 router.get('/', async (req, res) => {
   const isAddOrder = true;
   const contacts = await Contact.find()
